@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+body{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  background:linear-gradient(to left, #ffffff ,#e1d3fc);
+}
+
+#greet{
+  background: linear-gradient(to right,#7008e7,#b085e0);
+}
