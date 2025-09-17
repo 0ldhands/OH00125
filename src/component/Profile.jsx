@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import dp from "../assets/dp.jpeg";
+import '../index.css'
 
 const Profile = () => {
   return (
-    <div className="flex justify-around flex-row-reverse sm:px-10 sm:flex-row sm:mt-10 mt-10 mb-5">
+    <div className="flex justify-around flex-row-reverse sm:px-10 sm:flex-row sm:mt-10 mt-10 mb-5" id='profile-container'>
 
       {/* Text Content */}
       <div className="flex items-center">

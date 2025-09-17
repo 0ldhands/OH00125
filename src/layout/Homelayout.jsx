@@ -1,3 +1,4 @@
+import Content from '../component/Content'
 import Greet from '../component/Greet'
 import Header from '../component/Header'
 import Profile from '../component/profile'
@@ -8,6 +9,7 @@ const Homelayout = () => {
       <Header/>
       <Profile/>
       <Greet/>
+      <Content/>
     </div>
   )
 }
