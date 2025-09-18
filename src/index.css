@@ -16,3 +16,72 @@ body{
   background: linear-gradient(to right,#7008e7,#b085e0);
 }
 
+
+/* loading animation */
+
+.spiral-loader {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.spiral-loader span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: #14b8a6; /* teal */
+  border-radius: 50%;
+  animation: spiral 1.5s linear infinite;
+  transform-origin: 0 0;
+}
+
+.spiral-loader span:nth-child(1) {
+  background: #14b8a6;
+  animation-delay: 0s;
+}
+.spiral-loader span:nth-child(2) {
+  background: #ec4899;
+  animation-delay: 0.2s;
+}
+.spiral-loader span:nth-child(3) {
+  background: #facc15;
+  animation-delay: 0.4s;
+}
+.spiral-loader span:nth-child(4) {
+  background: #3b82f6;
+  animation-delay: 0.6s;
+}
+
+@keyframes spiral {
+  0% {
+    transform: rotate(0deg) translateX(0) scale(0.5);
+    opacity: 0.5;
+  }
+  50% {
+    transform: rotate(180deg) translateX(40px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateX(0) scale(0.5);
+    opacity: 0.5;
+  }
+}
+
+/* Optional fade-in for content */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+

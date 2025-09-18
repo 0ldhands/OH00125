@@ -20,7 +20,12 @@ const Profile = () => {
           </h2>
           <div className="sm:mt-5 mt-3 flex justify-evenly">
             <button className="bg-violet-800 text-white p-2 sm:p-3 text-sm rounded-full hover:bg-violet-500">
-              Resume
+               <a
+        href="public/Resume.pdf" 
+        download="My_Resume.pdf"
+      >
+        Resume
+      </a>
             </button>
             <button className="bg-violet-800 text-white p-2 sm:p-3 text-sm rounded-full hover:bg-violet-500">
               Portfolio

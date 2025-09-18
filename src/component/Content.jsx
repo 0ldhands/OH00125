@@ -14,8 +14,14 @@ import { FcProcess } from "react-icons/fc";
 import { SiAdobeaudition } from "react-icons/si";
 import { BsGraphUp } from "react-icons/bs";
 import funct from '../assets/function.jpg'
+import sql from '../assets/sql.png'
+import word from '../assets/word.png'
+import powerppoint from '../assets/powerpoint.png'
+import excel from '../assets/excel.png'
 
 const Content = () => {
+
+
   return (
     <div>
       <div className="border-violet-200 m-5 border-2 rounded-3xl">
@@ -37,6 +43,26 @@ const Content = () => {
           </p>
         </div>
       </div> 
+
+     
+
+      <div className="sm:m-10">
+        <h1 className="text-2xl text-center m-5">Technical skills</h1>
+           <div className="flex justify-evenly">
+          <div>
+          <img src={word} alt="word" className="sm:w-30 w-10" />
+        </div>
+        <div>
+          <img src={excel} alt="excel" className="sm:w-30 w-10"/>
+        </div>
+        <div>
+          <img src={powerppoint} alt="powerpoint" className="sm:w-30 w-10"/>
+        </div>
+        <div>
+          <img src={sql} alt="sql" className="sm:w-30 w-10" />
+        </div>
+      </div>
+      </div>
 
       <div className="flex flex-col my-5">
         <div className="sm:flex flex flex-col-reverse sm:flex-row  sm:mx-15 sm:my-5 mx-5 justify-between border-2 border-violet-200 rounded-2xl">
