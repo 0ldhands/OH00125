@@ -4,11 +4,11 @@ import '../index.css'
 
 const Profile = () => {
   return (
-    <div className="flex justify-around flex-row-reverse sm:px-10 sm:flex-row sm:mt-10 mt-10 mb-5" id='profile-container'>
+    <div className="flex justify-around flex-row-reverse sm:px-10 sm:flex-row sm:my-3 mt-10 mb-5" id='profile-container'>
 
       {/* Text Content */}
       <div className="flex items-center">
-        <motion.div
+        <motion.div  
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.5, ease: "easeOut" }}

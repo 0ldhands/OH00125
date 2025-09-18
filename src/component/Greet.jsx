@@ -1,14 +1,37 @@
 import { FaAnglesDown } from "react-icons/fa6";
 import {motion} from 'framer-motion'
+import { useEffect, useState } from "react";
 
 const Greet = () => {
+
+   const text =
+    "Senior finance professional with 15+ years in banking, specializing in credit analysis, risk management, and business development, driving revenue growth and client success at DBS Bank India Ltd.";
+
+  const words = text.split(" ");
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayedText((prev) => (prev ? prev + " " + words[i] : words[i]));
+      i++;
+      if (i === words.length) clearInterval(interval);
+    }, 150); // adjust speed (ms per word)
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex flex-col items-center ">
-      <p className="p-5 align-text-center bg-violet-700 sm:mb-4 sm:m-2 m-5 mt-10 sm:rounded-3xl rounded-2xl" id="greet">
-        Senior finance professional with 15+ years in banking, specializing in
-        credit analysis, risk management, and business development, driving
-        revenue growth and client success at DBS Bank India Ltd.
-      </p>
+      <motion.p
+      className="p-5 text-center bg-violet-700 sm:m-5 m-5 mt-10 sm:rounded-3xl rounded-2xl text-white text-lg leading-relaxed"
+      id="greet"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {displayedText}
+      <span className="animate-pulse ml-1">|</span> 
+    </motion.p>
        <motion.div
       animate={{ y: [0, 10, 0] }}
       transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

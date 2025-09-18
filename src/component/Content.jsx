@@ -38,11 +38,11 @@ const Content = () => {
         </div>
       </div> 
 
-      <div className="flex flex-col">
-        <div className="flex m-15 justify-between border-2 border-violet-200 rounded-2xl">
+      <div className="flex flex-col my-5">
+        <div className="sm:flex flex flex-col-reverse sm:flex-row  sm:mx-15 sm:my-5 mx-5 justify-between border-2 border-violet-200 rounded-2xl">
           
           <div className="p-3">
-            <h3 className="text-3xl">Personality and Strength</h3>
+            <h3 className="sm:text-3xl mb-3 text-2xl">Personality and Strength</h3>
             <ul>
               <li>
                 <IoIosAnalytics className="inline-block mr-2 text-violet-600"/>
@@ -70,17 +70,17 @@ const Content = () => {
             </ul>
           </div>
           <div>
-            <img src={strength} alt="" className="w-50 rounded-2xl"/>
+            <img src={strength} alt="" className="sm:w-50 rounded-2xl"/>
           </div>
         </div>
-        <div className="flex justify-evenly m-15 border-2 border-violet-200 rounded-2xl">
+        <div className="flex flex-col sm:flex-row justify-between sm:mx-15 sm:my-5 mx-5 my-5 border-2 border-violet-200 rounded-2xl">
 
           <div>
-            <img src={funct} alt="" className="w-65"/>
+            <img src={funct} alt="" className="sm:w-65 rounded-2xl"/>
           </div>
           
           <div className="p-3">
-            <h3 className="text-3xl">Functional Areas</h3>
+            <h3 className="sm:text-3xl mb-3 text-2xl">Functional Areas</h3>
             <ul>
               <li>
                 <MdManageAccounts className="inline-block mr-2 text-violet-600"/>
