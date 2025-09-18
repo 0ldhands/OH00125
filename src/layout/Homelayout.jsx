@@ -1,4 +1,5 @@
 import Content from '../component/Content'
+import Footer from '../component/Footer'
 import Greet from '../component/Greet'
 import Header from '../component/Header'
 import Profile from '../component/profile'
@@ -10,6 +11,7 @@ const Homelayout = () => {
       <Profile/>
       <Greet/>
       <Content/>
+      <Footer/>
     </div>
   )
 }

@@ -29,7 +29,7 @@ const Content = () => {
           <h3 className="text-3xl">Summary</h3>
         </div>
         <div className="m-3">
-          <p>
+          <p  className="text-gray-600">
             {" "}
             I am a senior-level finance professional with over 15 years of
             experience in the banking industry, specializing in credit analysis
@@ -69,7 +69,7 @@ const Content = () => {
           
           <div className="p-3">
             <h3 className="sm:text-3xl mb-3 text-2xl">Personality and Strength</h3>
-            <ul>
+            <ul className="text-gray-600">
               <li>
                 <IoIosAnalytics className="inline-block mr-2 text-violet-600"/>
                 Analytical and detail-oriented with a strong problem-solving
@@ -107,7 +107,7 @@ const Content = () => {
           
           <div className="p-3">
             <h3 className="sm:text-3xl mb-3 text-2xl">Functional Areas</h3>
-            <ul>
+            <ul  className="text-gray-600">
               <li>
                 <MdManageAccounts className="inline-block mr-2 text-violet-600"/>
                 Credit analysis & Risk Management</li>

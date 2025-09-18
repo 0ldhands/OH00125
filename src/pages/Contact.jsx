@@ -1,8 +1,11 @@
 import React from 'react'
+import Contactlayout from '../layout/Contactlayout'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+      <Contactlayout/>
+    </div>
   )
 }
 

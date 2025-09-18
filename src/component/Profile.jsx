@@ -24,7 +24,7 @@ const Profile = () => {
         href="public/Resume.pdf" 
         download="My_Resume.pdf"
       >
-        Resume
+        Resume 
       </a>
             </button>
             <button className="bg-violet-800 text-white p-2 sm:p-3 text-sm rounded-full hover:bg-violet-500">

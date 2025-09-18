@@ -12,7 +12,7 @@ const Header = () => {
                 <ul>
                     <li className="inline-block ml-5 sm:ml-20"><Link to="/">Home</Link></li>
                     <li className="inline-block  ml-5 sm:ml-20"><Link to="/About">About</Link></li>
-                    <li className="inline-block  ml-5 sm:ml-20"><button onClick="/Contact" className="bg-violet-800 text-white p-1 sm:p-2 rounded-sm hover:bg-violet-500">Contact</button></li>
+                    <li className="inline-block  ml-5 sm:ml-20"><Link to="/Contact" className="bg-violet-800 text-white p-1 sm:p-2 rounded-sm hover:bg-violet-500">Contact</Link></li>
                 </ul>
             </nav>
         </div>
