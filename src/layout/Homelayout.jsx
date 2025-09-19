@@ -2,7 +2,7 @@ import Content from '../component/Content'
 import Footer from '../component/Footer'
 import Greet from '../component/Greet'
 import Header from '../component/Header'
-import Profile from '../component/profile'
+import Profile from '../component/Profile'
 
 const Homelayout = () => {
   return (
