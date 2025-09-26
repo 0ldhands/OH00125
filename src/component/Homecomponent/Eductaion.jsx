@@ -1,6 +1,7 @@
 // src/component/Homecomponent/EducationSection.jsx
-import React from "react";
+import React, { forwardRef, useContext } from "react";
 import { motion } from "framer-motion";
+import { Usercontext } from "../../Context/Context";
 
 
 const cardVariants = {
@@ -29,9 +30,13 @@ const education = [
   },
 ];
 
-const Education = () => {
+const Education = forwardRef(() => {
+    const val=useContext(Usercontext)
+
+    const{Education}=val
+
   return (
-    <section className="p-2 sm:p-5 bg-gradient-to-br  m-5">
+    <section className="p-2 sm:p-5 bg-gradient-to-br  m-5" ref={Education}>
       <h1 className="text-2xl md:text-3xl font-bold text-gray-800 flex items-center border-b-3 border-violet-700 pb-2 mb-6">
         Education
         {/* <img src={edu} alt="education" className="w-8 sm:w-10 ml-4" /> */}
@@ -66,6 +71,6 @@ const Education = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Education;

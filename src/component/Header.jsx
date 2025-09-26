@@ -21,6 +21,11 @@ const Header = () => {
     { label: "Contact", path: "/Contact",special:true},
   ];
 
+  function setView(val){
+    scrollToSection(val)
+    setIsOpen(false)
+  }
+
   return (
     <header className="flex justify-between items-center m-4 pb-2 border-b border-gray-300">
       {/* Brand + Toggle */}
@@ -67,7 +72,7 @@ const Header = () => {
               <Link
                 to={item.path}
                
-                onClick={() => setIsOpen(false)}
+                onClick={() => setView(item.btn)}
               >
                 {item.label}
               </Link>

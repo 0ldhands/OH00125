@@ -129,25 +129,25 @@ const Content = forwardRef(() => {
               <li className="cursor-pointer" onClick={() => scrollToSection("Projectwork")}>
                 Pay Bill Generation 
                 <a className="inline-block" href="public/files/paybill.xls" download="paybill.xls">
-                  <CgLoadbarDoc className="ms-5 text-violet-800 border-b-2" />
+                  <CgLoadbarDoc className="ms-5 text-violet-800 inline-block"/> <span className="text-violet-800 text-sm">link</span>
                 </a>
               </li>
               <li className="cursor-pointer" onClick={() => scrollToSection("Projectwork")}>
                 CashBook/CoinWar/Cash 
                 <a className="inline-block" href="public/files/Cashbook.xlsm" download="Cashbook.xlsm">
-                  <CgLoadbarDoc className="ms-5 text-violet-800 border-b-2" />
+                  <CgLoadbarDoc className="ms-5 text-violet-800 inline-block" /><span className="text-violet-800 text-sm">link</span>
                 </a>
               </li>
               <li className="cursor-pointer" onClick={() => scrollToSection("Projectwork")}>
                 JDL Assist 
                 <a className="inline-block" href="public/files/JDLdata.xls" download="JDLdata.xls">
-                  <CgLoadbarDoc className="ms-5 text-violet-800 border-b-2" />
+                  <CgLoadbarDoc className="ms-5 text-violet-800 inline-block" /><span className="text-violet-800 text-sm">link</span>
                 </a>
               </li>
               <li className="cursor-pointer" onClick={() => scrollToSection("Projectwork")}>
                 NLD Ledger 
                 <a className="inline-block" href="public/files/JDLproucher.xlsm" download="JDLproucher.xlsm">
-                  <CgLoadbarDoc className="ms-5 text-violet-800 border-b-2" />
+                  <CgLoadbarDoc className="ms-5 text-violet-800 inline-block" /><span className="text-violet-800 text-sm">link</span>
                 </a>
               </li>
             </ul>

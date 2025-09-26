@@ -12,14 +12,14 @@ const Greet = () => {
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
-      if (i < words.length) {
-        // Add space only after the first word
+      if (i < 27) {
+        
         setDisplayedText((prev) => (prev ? prev + " " + words[i] : words[i]));
         i++;
       } else {
         clearInterval(interval); // stop interval when done
       }
-    }, 150); // adjust speed (ms per word)
+    }, 200); // adjust speed (ms per word)
 
     return () => clearInterval(interval);
   }, []);

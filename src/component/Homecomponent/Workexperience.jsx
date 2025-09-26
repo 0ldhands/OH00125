@@ -1,8 +1,14 @@
-import React from "react";
+import React, { forwardRef, useContext } from "react";
 import { motion } from "framer-motion";
 // import workIcon from "../../assets/working-time.png";
+import { Usercontext } from "../../Context/Context";
 
-const WorkExperience = () => {
+const WorkExperience = forwardRef(() => {
+
+    const val=useContext(Usercontext)
+
+    const{Experience}=val
+
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: (i) => ({
@@ -81,7 +87,7 @@ const WorkExperience = () => {
   ];
 
   return (
-    <div className="p-6 md:p-10 lg:p-16 bg-gradient-to-r m-5">
+    <div className="p-6 sm:p-5 bg-gradient-to-r m-5" ref={Experience}>
       <h1 className="text-2xl md:text-3xl font-bold text-gray-800 flex items-center mb-12 justify-center">
         Work Experience
         {/* <img
@@ -136,6 +142,6 @@ const WorkExperience = () => {
       </div>
     </div>
   );
-};
+});
 
 export default WorkExperience;  
