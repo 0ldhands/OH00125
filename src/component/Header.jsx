@@ -1,23 +1,90 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { useContext, useState } from "react";
+import { Usercontext } from "../Context/Context";
 
 
 const Header = () => {
-  return (
-    <header className="sm:flex sm:justify-between m-2 sm:m-5 pb-2 border-b-1 border-gray-300">
-        <div className="flex items-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-violet-800">GNANA SEKAR</h1>
-        </div>
-        <div className="sm:mt-0 mt-2 flex justify-end sm:mr-10 items-center">
-            <nav>
-                <ul>
-                    <li className="inline-block ml-5 sm:ml-20"><Link to="/">Home</Link></li>
-                    <li className="inline-block  ml-5 sm:ml-20"><Link to="/About">About</Link></li>
-                    <li className="inline-block  ml-5 sm:ml-20"><Link to="/Contact" className="bg-violet-800 text-white p-1 sm:p-2 rounded-sm hover:bg-violet-500">Contact</Link></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-  )
-}
+  const [isOpen, setIsOpen] = useState(false);
 
-export default Header
+  const val=useContext(Usercontext)
+
+  const{scrollToSection}=val
+
+  const navItems = [
+    { label: "Home", path: "/" },
+    { label: "Education", path: "/",btn:"Education" },
+    { label: "Certifications", path: "/",btn:"Certifications" },
+    { label: "Experience", path: "/",btn:"Experience" },
+    { label: "Projects", path: "/",btn:"Projects"},
+    { label: "Hobbies", path: "/",btn:"Hobbies"},
+    { label: "Contact", path: "/Contact",special:true},
+  ];
+
+  return (
+    <header className="flex justify-between items-center m-4 pb-2 border-b border-gray-300">
+      {/* Brand + Toggle */}
+      <div className="flex justify-between items-center w-full sm:w-auto">
+        <h1 className="text-2xl sm:text-3xl font-bold text-violet-800">
+          GNANA SEKAR
+        </h1>
+        <button
+          className="sm:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Desktop Nav */}
+      <nav className="hidden sm:block">
+        <ul className="flex space-x-5 text-sm">
+          {navItems.map((item, i) => (
+            <li key={i}>
+              <Link
+                to={item.path}
+                className={item.special
+                  ? "bg-violet-800 text-white px-3 py-1 rounded hover:bg-violet-500"
+                  : "px-3"}
+                  onClick={()=>scrollToSection(item.btn)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Mobile Sidebar */}
+      <nav
+        className={`fixed top-0 left-0 h-full w-64 bg-violet-800 text-white transform
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}
+          transition-transform duration-300 ease-in-out z-50 sm:hidden`}
+      >
+        <ul className="p-6 space-y-6 text-lg">
+          {navItems.map((item, i) => (
+            <li key={i}  className="border-b-2 border-b-violet-700 pb-2">
+              <Link
+                to={item.path}
+               
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 sm:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+    </header>
+  );
+};
+
+export default Header;

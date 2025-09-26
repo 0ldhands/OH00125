@@ -2,7 +2,11 @@ import Content from '../component/Content'
 import Footer from '../component/Footer'
 import Greet from '../component/Greet'
 import Header from '../component/Header'
-import Profile from '../component/Profile'
+import Certificate from '../component/Homecomponent/Certificate'
+import Profile from '../component/profile'
+import Projectwork from "../component/Homecomponent/Projectwork"
+import Education from '../component/Homecomponent/Eductaion'
+import WorkExperience from '../component/Homecomponent/Workexperience'
 
 const Homelayout = () => {
   return (
@@ -11,6 +15,10 @@ const Homelayout = () => {
       <Profile/>
       <Greet/>
       <Content/>
+      <Education/>
+      <Certificate/>
+      <WorkExperience/>
+      <Projectwork/>
       <Footer/>
     </div>
   )

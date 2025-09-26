@@ -1,36 +1,35 @@
-import React from "react";
-import strength from '../assets/strength.jpg'
+import React, { forwardRef, useContext } from "react";
 import { IoIosAnalytics } from "react-icons/io";
-import { FaPersonBiking } from "react-icons/fa6";
+import { FaPersonBiking, FaChessKing } from "react-icons/fa6";
 import { GiStrong } from "react-icons/gi";
-import { MdOutlineDynamicFeed } from "react-icons/md";
-import { SiGamemaker } from "react-icons/si";
-import { MdManageAccounts } from "react-icons/md";
+import { MdOutlineDynamicFeed, MdManageAccounts, MdBusiness } from "react-icons/md";
+import { SiGamemaker, SiAdobeaudition } from "react-icons/si";
 import { RiGitBranchFill } from "react-icons/ri";
-import { FcCustomerSupport } from "react-icons/fc";
-import { MdBusiness } from "react-icons/md";
-import { FaChessKing } from "react-icons/fa6";
-import { FcProcess } from "react-icons/fc";
-import { SiAdobeaudition } from "react-icons/si";
+import { FcCustomerSupport, FcProcess } from "react-icons/fc";
 import { BsGraphUp } from "react-icons/bs";
-import funct from '../assets/function.jpg'
-import sql from '../assets/sql.png'
-import word from '../assets/word.png'
-import powerppoint from '../assets/powerpoint.png'
-import excel from '../assets/excel.png'
+import { CgLoadbarDoc } from "react-icons/cg";
+import funct from "../assets/function.jpg";
+import sql from "../assets/icons/database.png";
+import word from "../assets/icons/word.png";
+import powerppoint from "../assets/icons/powerbi.png";
+import excel from "../assets/icons/excel.png";
+import Project from "../assets/skills/project.png";
+import { Usercontext } from "../Context/Context";
+import Strength from "../assets/strength.jpg";
 
-const Content = () => {
-
+const Content = forwardRef(() => {
+  const val = useContext(Usercontext);
+  const { Projects, scrollToSection } = val;
 
   return (
     <div>
+      {/* Summary Section */}
       <div className="border-violet-200 m-5 border-2 rounded-3xl">
         <div className="m-3">
           <h3 className="text-3xl">Summary</h3>
         </div>
         <div className="m-3">
-          <p  className="text-gray-600">
-            {" "}
+          <p className="text-gray-600">
             I am a senior-level finance professional with over 15 years of
             experience in the banking industry, specializing in credit analysis
             and risk management. I have a proven track record in driving revenue
@@ -42,102 +41,122 @@ const Content = () => {
             clients.
           </p>
         </div>
-      </div> 
+      </div>
 
-     
-
-      <div className="sm:m-10">
+      {/* Technical Skills */}
+      <div className="sm:m-5 m-5 bg-violet-500 sm:p-1 p-3 rounded-2xl">
         <h1 className="text-2xl text-center m-5">Technical skills</h1>
-           <div className="flex justify-evenly">
+        <div className="flex justify-evenly">
           <div>
-          <img src={word} alt="word" className="sm:w-30 w-10" />
-        </div>
-        <div>
-          <img src={excel} alt="excel" className="sm:w-30 w-10"/>
-        </div>
-        <div>
-          <img src={powerppoint} alt="powerpoint" className="sm:w-30 w-10"/>
-        </div>
-        <div>
-          <img src={sql} alt="sql" className="sm:w-30 w-10" />
+            <img src={word} alt="word" className="sm:w-20 w-10" />
+            <h1 className="text-center text-white text-sm ">Word</h1>
+          </div>
+          <div>
+            <img src={excel} alt="excel" className="sm:w-20 w-10" />
+            <h1 className="text-center text-white text-sm">Excel</h1>
+          </div>
+          <div>
+            <img src={powerppoint} alt="powerpoint" className="sm:w-20 w-10" />
+            <h1 className="text-center text-white text-sm">PowerBi</h1>
+          </div>
+          <div>
+            <img src={sql} alt="sql" className="sm:w-20 w-10" />
+            <h1 className="text-center text-white text-sm">MySQL</h1>
+          </div>
         </div>
       </div>
-      </div>
 
-      <div className="flex flex-col my-5">
-        <div className="sm:flex flex flex-col-reverse sm:flex-row  sm:mx-15 sm:my-5 mx-5 justify-between border-2 border-violet-200 rounded-2xl">
-          
-          <div className="p-3">
-            <h3 className="sm:text-3xl mb-3 text-2xl">Personality and Strength</h3>
-            <ul className="text-gray-600">
-              <li>
-                <IoIosAnalytics className="inline-block mr-2 text-violet-600"/>
-                Analytical and detail-oriented with a strong problem-solving
-                mindset.
-              </li>
-              <li className="sm:ml-10">
-                <FaPersonBiking className="inline-block mr-2 text-violet-600"/>
-                Proactive leader with the ability to drive operational
-                efficiency.
-              </li>
-              <li  className="sm:ml-20">
-                <GiStrong className="inline-block mr-2 text-violet-600"/>
-                Strong interpersonal and relationship-building skills</li>
-              <li  className="sm:ml-30">
-                <MdOutlineDynamicFeed  className="inline-block mr-2 text-violet-600"/>
-                Adaptable to dynamic work environments with a continuous
-                learning attitude
-              </li>
-              <li  className="sm:ml-40">
-                <SiGamemaker className="inline-block mr-2 text-violet-600"/>
-                High ethical standards and integrity in financial
-                decision-making.
-              </li>
-            </ul>
-          </div>
-          <div>
-            <img src={strength} alt="" className="sm:w-50 rounded-2xl"/>
-          </div>
-        </div>
-        <div className="flex flex-col sm:flex-row justify-between sm:mx-15 sm:my-5 mx-5 my-5 border-2 border-violet-200 rounded-2xl">
-
-          <div>
-            <img src={funct} alt="" className="sm:w-65 rounded-2xl"/>
-          </div>
-          
-          <div className="p-3">
-            <h3 className="sm:text-3xl mb-3 text-2xl">Functional Areas</h3>
-            <ul  className="text-gray-600">
-              <li>
-                <MdManageAccounts className="inline-block mr-2 text-violet-600"/>
-                Credit analysis & Risk Management</li>
-              <li className="sm:ml-10">
-                 <RiGitBranchFill className="inline-block mr-2 text-violet-600"/>
-                Branch Operations Management</li>
-              <li className="sm:ml-20">
-                 <FcCustomerSupport className="inline-block mr-2 text-violet-600"/>
-                Customer Relationship Management</li>
-              <li className="sm:ml-30">
-                 <MdBusiness className="inline-block mr-2 text-violet-600"/>
-                Business Development</li>
-              <li className="sm:ml-40">
-                 <FaChessKing className="inline-block mr-2 text-violet-600"/>
-                Leadership & Team Management</li>
-              <li className="sm:ml-50">
-                 <FcProcess className="inline-block mr-2 text-violet-600"/>
-                Process Improvement & SLA Management</li>
-              <li className="sm:ml-60">
-                 <SiAdobeaudition className="inline-block mr-2 text-violet-600"/>
-                Audit & Compliance</li>
-              <li className="sm:ml-70">
-                 <BsGraphUp className="inline-block mr-2 text-violet-600"/>
-                Revenue Growth & Profitability </li>
+      {/* Cards Section */}
+      <div className="flex flex-col sm:justify-evenly sm:flex-row my-5">
+        
+        {/* Strengths Card */}
+        <div className=" border-2 border-violet-200 rounded-2xl m-5 overflow-hidden">
+          <img
+            src={Strength}
+            alt="Strength illustration"
+            className="w-full h-64 object-cover object-top"
+          />
+          <div className="sm:m-5 m-1">
+            <h3 className="text-2xl sm:mb-4 mb-1 font-bold text-violet-800">
+              Personality & Strengths
+            </h3>
+            <ul className="sm:space-y-3 space-y-1 text-gray-700">
+              <li><IoIosAnalytics className="inline-block mr-2 text-violet-600" /> Analytical thinker</li>
+              <li><FaPersonBiking className="inline-block mr-2 text-violet-600" /> Proactive leader</li>
+              <li><GiStrong className="inline-block mr-2 text-violet-600" /> Strong communicator</li>
+              <li><MdOutlineDynamicFeed className="inline-block mr-2 text-violet-600" /> Adaptable & agile</li>
+              <li><SiGamemaker className="inline-block mr-2 text-violet-600" /> Integrity driven</li>
             </ul>
           </div>
         </div>
+
+        {/* Functional Areas Card */}
+        <div className="border-2 border-violet-200 rounded-2xl m-5 overflow-hidden">
+          <img
+            src={funct}
+            alt="Functional illustration"
+            className="w-full h-64 object-cover object-top"
+          />
+          <div className="sm:m-5 m-1">
+            <h3 className="sm:text-2xl sm:mb-4 mb-1 text-2xl font-bold text-violet-800">
+              Functional Areas
+            </h3>
+            <ul className="sm:space-y-3 space-y-1 text-gray-700">
+              <li><MdManageAccounts className="inline-block mr-2 text-violet-600" /> Credit & Risk Management</li>
+              <li><RiGitBranchFill className="inline-block mr-2 text-violet-600" /> Branch Operations</li>
+              <li><FcCustomerSupport className="inline-block mr-2 text-violet-600" /> Customer Relations</li>
+              <li><MdBusiness className="inline-block mr-2 text-violet-600" /> Business Development</li>
+              <li><FaChessKing className="inline-block mr-2 text-violet-600" /> Leadership & Team Management</li>
+              <li><FcProcess className="inline-block mr-2 text-violet-600" /> Process Improvement</li>
+              <li><SiAdobeaudition className="inline-block mr-2 text-violet-600" /> Audit & Compliance</li>
+              <li><BsGraphUp className="inline-block mr-2 text-violet-600" /> Revenue Growth</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Project Card */}
+        <div className="border-2 border-violet-200 rounded-2xl m-5 overflow-hidden" ref={Projects}>
+          <img
+            src={Project}
+            alt="project"
+            className="w-full h-64 object-cover object-top"
+          />
+          <div className="sm:m-5 m-1">
+            <h1 className="sm:text-2xl mb-4 text-2xl font-bold text-violet-800 mt-5">
+              Project
+            </h1>
+            <ul className="space-y-3 text-gray-700">
+              <li className="cursor-pointer" onClick={() => scrollToSection("Projectwork")}>
+                Pay Bill Generation 
+                <a className="inline-block" href="public/files/paybill.xls" download="paybill.xls">
+                  <CgLoadbarDoc className="ms-5 text-violet-800 border-b-2" />
+                </a>
+              </li>
+              <li className="cursor-pointer" onClick={() => scrollToSection("Projectwork")}>
+                CashBook/CoinWar/Cash 
+                <a className="inline-block" href="public/files/Cashbook.xlsm" download="Cashbook.xlsm">
+                  <CgLoadbarDoc className="ms-5 text-violet-800 border-b-2" />
+                </a>
+              </li>
+              <li className="cursor-pointer" onClick={() => scrollToSection("Projectwork")}>
+                JDL Assist 
+                <a className="inline-block" href="public/files/JDLdata.xls" download="JDLdata.xls">
+                  <CgLoadbarDoc className="ms-5 text-violet-800 border-b-2" />
+                </a>
+              </li>
+              <li className="cursor-pointer" onClick={() => scrollToSection("Projectwork")}>
+                NLD Ledger 
+                <a className="inline-block" href="public/files/JDLproucher.xlsm" download="JDLproucher.xlsm">
+                  <CgLoadbarDoc className="ms-5 text-violet-800 border-b-2" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   );
-};
+});
 
 export default Content;

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 // import workIcon from "../../assets/working-time.png";
 
-const WorkExperienceSection = () => {
+const WorkExperience = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: (i) => ({
@@ -81,8 +81,8 @@ const WorkExperienceSection = () => {
   ];
 
   return (
-    <div className="p-6 md:p-10 lg:p-16 bg-gradient-to-r from-indigo-50 to-purple-100 rounded-3xl shadow-xl mt-12">
-      <h1 className="text-3xl md:text-4xl font-bold text-gray-800 flex items-center mb-12 justify-center">
+    <div className="p-6 md:p-10 lg:p-16 bg-gradient-to-r m-5">
+      <h1 className="text-2xl md:text-3xl font-bold text-gray-800 flex items-center mb-12 justify-center">
         Work Experience
         {/* <img
           src={workIcon}
@@ -138,4 +138,4 @@ const WorkExperienceSection = () => {
   );
 };
 
-export default WorkExperienceSection;  
+export default WorkExperience;  
