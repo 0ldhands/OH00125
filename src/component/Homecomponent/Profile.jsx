@@ -1,18 +1,24 @@
 import { motion } from "framer-motion";
-import dp from "../assets/dp.jpeg";
-import "../index.css";
-import { Usercontext } from "../Context/Context";
+import dp from "../../assets/dp.jpeg";
+import "../../index.css"
+import { Usercontext } from "../../Context/Context";
 import { useContext } from "react";
 
 const Profile = () => {
+  const val = useContext(Usercontext);
+  const { scrollToSection, theme } = val;
 
-  const val=useContext(Usercontext)
-
-  const{scrollToSection}=val
+  // Centralize theme colors
+  const bgColor = theme && "white";
+  const waveColor = theme ? "#7c3aed" : "#155dfc";
+  const buttonColor = theme ? "bg-violet-800" : "bg-blue-600";
 
   return (
-    <div className="relative bg-white" id="profile-container">
-      
+    <div
+      className="relative"
+      style={{ backgroundColor: bgColor }}
+      id="profile-container"
+    >
       {/* Top Outside Fade Wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <svg
@@ -24,38 +30,52 @@ const Profile = () => {
           <defs>
             <linearGradient id="topOutsideFade" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="white" stopOpacity="0" />
-              <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.35" />
+              <stop offset="100%" stopColor={waveColor} stopOpacity="0.35" />
             </linearGradient>
           </defs>
           <path
             d="M321.39 56.44C161.48 86.14 0 46.57 0 46.57V0h1200v27.35s-136.44 55.87-321.39 29.09C713.39 29.84 489.3 27.82 321.39 56.44z"
             fill="url(#topOutsideFade)"
-          ></path>
+          />
         </svg>
       </div>
 
       {/* Content */}
-      <div className="flex justify-around flex-row-reverse sm:px-10 sm:flex-row sm:my-3  relative z-10 p-5 sm:p-0 ">
-        
+      <div className="flex sm:justify-around items-center sm:gap-0 gap-6  flex-col-reverse sm:px-10 sm:flex-row sm:my-3 relative z-10 p-5 sm:p-0">
         {/* Text Content */}
-        <div className="flex items-center ">
+        <div className="flex items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
-            <h1 className="font-medium sm:text-4xl p-2">Hello !</h1>
-            <h3 className="sm:text-2xl p-2 sm:ml-0">I am <span className="font-bold">Gnana Sekar M</span></h3>
-            <h2 className="font-medium sm:text-2xl sm:ml-0 p-2 text-violet-600">
-              Specialist - Credit Analysis
+           <div className={theme ? `text-black` : `text-gray-300`}>
+             <h1 className="font-medium sm:text-4xl sm:p-2 sm:m-0 m-1">
+              Hello !
+            </h1>
+            <h3 className="sm:text-2xl sm:p-2 sm:ml-0 sm:m-0 m-1">
+              I am{" "}
+              <span className="font-bold">
+                Gnanasekar Murugaamirthan
+              </span>
+            </h3>
+           </div>
+            <h2 className={`font-medium sm:text-1xl p-2 sm:ml-0 sm:p-2 ${theme ? "text-violet-600 bg-violet-300":"text-blue-500 bg-gray-500"} sm:m-0 m-1  rounded-2xl`}>
+              Full-Time Trader & Investor |Specialist- Credit Analyst | Versatile Professional with Multi-Industry
+Experience
             </h2>
             <div className="sm:mt-5 mt-3 flex justify-evenly">
-              <button className="bg-violet-800 text-white p-2 sm:p-3 text-sm rounded-sm hover:bg-violet-500">
+              <button
+                className={`${buttonColor} text-white p-2 sm:p-3 text-sm rounded-sm hover:bg-violet-500`}
+              >
                 <a href="public/Resume.pdf" download="My_Resume.pdf">
                   Resume
                 </a>
               </button>
-              <button className="bg-violet-800 text-white p-2 sm:p-3 text-sm rounded-sm hover:bg-violet-500" onClick={()=>scrollToSection("Projectwork")}>
+              <button
+                className={`${buttonColor} text-white p-2 sm:p-3 text-sm rounded-sm hover:bg-violet-500`}
+                onClick={() => scrollToSection("Projectwork")}
+              >
                 Portfolio
               </button>
             </div>
@@ -67,7 +87,7 @@ const Profile = () => {
           <motion.img
             src={dp}
             alt="Profile Picture"
-            className="rounded-full shadow-2xl shadow-violet-500 sm:w-60 w-40 p-5"
+            className={`rounded-full shadow-2xl ${theme ? "shadow-violet-500" : "shadow-blue-500"} sm:w-60 w-50 sm:p-5`}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -86,13 +106,13 @@ const Profile = () => {
           <defs>
             <linearGradient id="bottomOutsideFade" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="white" stopOpacity="0" />
-              <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.35" />
+              <stop offset="100%" stopColor={waveColor} stopOpacity="0.35" />
             </linearGradient>
           </defs>
           <path
             d="M321.39 56.44C161.48 86.14 0 46.57 0 46.57V0h1200v27.35s-136.44 55.87-321.39 29.09C713.39 29.84 489.3 27.82 321.39 56.44z"
             fill="url(#bottomOutsideFade)"
-          ></path>
+          />
         </svg>
       </div>
     </div>

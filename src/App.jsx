@@ -1,42 +1,43 @@
-import React, { useRef } from 'react'
-import { BrowserRouter as Router ,Route,Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Other from './component/Other'
-import {Usercontext} from './Context/Context.jsx'
+import React, { useRef, useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Other from "./component/Other";
+import { Usercontext } from "./Context/Context.jsx";
+import './index.css'
+import Certificate from "./pages/Certificate.jsx";
+import Experience from "./pages/Experience.jsx";
+import Educations from "./pages/Educations.jsx";
+import Project from "./pages/Project.jsx";
 
 const App = () => {
 
-  const Education = useRef(null);
-  const Certifications = useRef(null);
-  const Experience = useRef(null);
-  const Projects = useRef(null);
-  const Hobbies = useRef(null);
-  const Projectwork = useRef(null);
-
-    const scrollToSection = (section) => {
-    if (section === "Education") Education.current.scrollIntoView({ behavior: "smooth" });
-    if (section === "Certifications") Certifications.current.scrollIntoView({ behavior: "smooth" });
-    if (section === "Experience") Experience.current.scrollIntoView({ behavior: "smooth" });
-    if (section === "Projects") Projects.current.scrollIntoView({ behavior: "smooth" });
-    if (section === "Hobbies") Hobbies.current.scrollIntoView({ behavior: "smooth" });
-    if (section === "Projectwork") Projectwork.current.scrollIntoView({ behavior: "smooth" });
-  };
-
+  const [theme, setTheme] = useState(false);
 
   return (
-   <Usercontext.Provider value={{Education,Certifications,Experience,Projects,Hobbies,Projectwork,scrollToSection}}>
-     <Router>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/About' element={<About/>}/>
-        <Route path='/Contact' element={<Contact/>}/>
-        <Route path='/Other' element={<Other/>}/>
-      </Routes>
-    </Router>
-   </Usercontext.Provider>
-  )
-}
+    <Usercontext.Provider
+      value={{
+        theme,
+        setTheme,
+      }}
+    >
+     <div id={theme ? "body" : "bodyt"}>
+       <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/Other" element={<Other />} />
+          <Route path="/Educations" element={<Educations />} />
+          <Route path="/Certificate" element={<Certificate />} />
+          <Route path="/Experience" element={<Experience />} />
+          <Route path="/Project" element={<Project />} />
+        </Routes>
+      </Router>
+     </div>
+    </Usercontext.Provider>
+  );
+};
 
-export default App
+export default App;

@@ -1,12 +1,8 @@
-import Content from '../component/Content'
+import Content from '../component/Homecomponent/Content.jsx'
 import Footer from '../component/Footer'
-import Greet from '../component/Greet'
+import Greet from '../component/Homecomponent/Greet.jsx'
 import Header from '../component/Header'
-import Certificate from '../component/Homecomponent/Certificate.jsx'
-import Profile from '../component/Profile.jsx'
-import Projectwork from "../component/Homecomponent/Projectwork"
-import Education from '../component/Homecomponent/Eductaion'
-import WorkExperience from '../component/Homecomponent/Workexperience'
+import Profile from '../component/Homecomponent/Profile.jsx'
 
 const Homelayout = () => {
   return (
@@ -15,10 +11,6 @@ const Homelayout = () => {
       <Profile/>
       <Greet/>
       <Content/>
-      <Education/>
-      <Certificate/>
-      <WorkExperience/>
-      <Projectwork/>
       <Footer/>
     </div>
   )

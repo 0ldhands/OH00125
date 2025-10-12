@@ -1,8 +1,14 @@
 import { FaAnglesDown } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Usercontext } from "../../Context/Context";
 
 const Greet = () => {
+
+  const val=useContext(Usercontext)
+
+  const{theme,setTheme}=val
+  
   const text =
     "Senior finance professional with 15+ years in banking, specializing in credit analysis, risk management, and business development, driving revenue growth and client success at DBS Bank India Ltd.";
 
@@ -28,7 +34,7 @@ const Greet = () => {
     <div className="flex flex-col items-center">
       <motion.p
         className="p-5 text-center bg-violet-700 sm:m-5 mx-5 my-2 sm:mt-10 sm:rounded-3xl rounded-2xl text-white text-lg leading-relaxed"
-        id="greet"
+        id={theme ? "greet" : "greets"}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}

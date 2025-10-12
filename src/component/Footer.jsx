@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import '../index.css'
 import { FaInstagram } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
 import { IoCall } from "react-icons/io5";
 import { FaLinkedin } from "react-icons/fa";
+import { Usercontext } from '../Context/Context';
 
 const Footer = () => {
+
+  const{theme,setTheme}=useContext(Usercontext)
+
   return (
     <div>
-      <div className='bg-black rounded-t-full p-3 text-violet-600 flex justify-center'>
+      <div className={`bg-black rounded-t-full p-3 ${theme ? "text-violet-600" : "text-blue-500"} flex justify-center`}>
         <p id='end-note'>Thank you for exploring my portfolio.</p>
       </div>
 
-      <div id='footer-container' className='flex flex-col items-center'>
+      <div id={theme ? 'footer-container' : 'footer-container2'} className='flex flex-col items-center'>
         <ul className='m-3 flex'>
           {/* Phone */}
           <li className='relative group inline-block sm:mx-10 mx-5'>

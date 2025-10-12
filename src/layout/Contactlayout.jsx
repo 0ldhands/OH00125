@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
-import ContactPage from '../component/Contactpage'
+import ContactPage from '../component/Overallcomponent/Contactpage.jsx'
 
 const Contactlayout = () => {
   return (

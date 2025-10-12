@@ -2,19 +2,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Pacifico&display=swap');
 @import "tailwindcss";
 
+
 body{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 300;
   font-style: normal;
+}
+
+#body{
   background:linear-gradient(to left, #ffffff ,#e1d3fc);
+  margin-top: 0px;
+}
+#bodyt{
+  background:linear-gradient(to left, #242323 ,#474747);
+  margin-top: 0px;
 }
 
 #greet{
   background: linear-gradient(to right,#7008e7,#b085e0);
+}
+#greets{
+  background: linear-gradient(to right,#383738,#6c6c6d);
 }
 
 #end-note{
@@ -25,6 +37,9 @@ body{
 
 #footer-container{
    background: linear-gradient(to right,#7008e7,#b085e0);
+}
+#footer-container2{
+   background: linear-gradient(to right,#4a65fd,#3f3f3f);
 }
 
 
@@ -91,8 +106,40 @@ body{
     transform: translateY(0);
   }
 }
-
-.animate-fadeIn {
-  animation: fadeIn 1s ease forwards;
+.wave-bg {
+  background: linear-gradient(
+    120deg,
+    rgba(139, 92, 246, 0.8),
+    rgba(139, 246, 250, 0.5),
+    rgba(139, 92, 246, 0.8)   
+  );
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  will-change: background-position;
+  transform: translateZ(0); /* GPU acceleration */
 }
 
+.wave-bgb {
+  background: linear-gradient(
+    120deg,
+    rgb(74, 101, 253),
+    rgb(63, 63, 63),
+    rgb(74, 101, 253)  
+  );
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  will-change: background-position;
+  transform: translateZ(0); /* GPU acceleration */
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

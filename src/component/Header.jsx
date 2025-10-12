@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useContext, useState } from "react";
 import { Usercontext } from "../Context/Context";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
+
 
 
 const Header = () => {
@@ -9,28 +12,24 @@ const Header = () => {
 
   const val=useContext(Usercontext)
 
-  const{scrollToSection}=val
+  const{theme,setTheme}=val
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "Education", path: "/",btn:"Education" },
-    { label: "Certifications", path: "/",btn:"Certifications" },
-    { label: "Experience", path: "/",btn:"Experience" },
-    { label: "Projects", path: "/",btn:"Projects"},
-    { label: "Hobbies", path: "/",btn:"Hobbies"},
+    { label: "Education", path: "/Educations"},
+    { label: "Certifications", path: "/Certificate"},
+    { label: "Experience", path: "/Experience"},
+    { label: "Projects", path: "/Project"},
+    { label: "Hobbies", path: "/"},
     { label: "Contact", path: "/Contact",special:true},
   ];
 
-  function setView(val){
-    scrollToSection(val)
-    setIsOpen(false)
-  }
 
   return (
-    <header className="flex justify-between items-center m-4 pb-2 border-b border-gray-300">
+    <header className="flex justify-between items-center p-3  pb-2 border-b border-gray-300">
       {/* Brand + Toggle */}
       <div className="flex justify-between items-center w-full sm:w-auto">
-        <h1 className="text-2xl sm:text-3xl font-bold text-violet-800">
+        <h1 className={`text-2xl sm:text-3xl font-bold ${theme ? "text-violet-800" : "text-blue-600"} `}>
           GNANA SEKAR
         </h1>
         <button
@@ -49,14 +48,14 @@ const Header = () => {
               <Link
                 to={item.path}
                 className={item.special
-                  ? "bg-violet-800 text-white px-3 py-1 rounded hover:bg-violet-500"
-                  : "px-3"}
-                  onClick={()=>scrollToSection(item.btn)}
+                  ? `${theme ?"bg-violet-800" : "bg-blue-600"} text-white px-3 py-1 rounded ${theme ?"hover:bg-violet-500":"hover:bg-blue-500"}`
+                  : `px-3 ${theme ? "text-black":"text-white"}`}
               >
                 {item.label}
               </Link>
             </li>
           ))}
+          <li onClick={()=>setTheme((cur)=>!cur)}>{theme ?<MdOutlineDarkMode size={20} /> : <MdDarkMode size={20}/> }</li>
         </ul>
       </nav>
 

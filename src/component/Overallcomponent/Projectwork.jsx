@@ -78,7 +78,7 @@ const ProjectCard = ({ index, title, description }) => {
   );
 };
 
-const Projects = forwardRef(() => {
+const Projects =() => {
 
   const val=useContext(Usercontext)
 
@@ -126,6 +126,6 @@ const Projects = forwardRef(() => {
       </motion.div>
     </div>
   );
-});
+};
 
 export default Projects;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react"; 
-import handshake from "../assets/handshake.png";
+import handshake from "../../assets/handshake.png";
 
 const ContactPage = () => {
   return (
