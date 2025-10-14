@@ -11,6 +11,7 @@ import { FaSuitcase } from "react-icons/fa";
 import { AiFillExperiment } from "react-icons/ai";
 import { IoMdContact } from "react-icons/io";
 import { FaClover } from "react-icons/fa6";
+import Togglebtn from "./Togglebtn";
 
 
 
@@ -47,7 +48,6 @@ const Header = () => {
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-        <span className="sm:hidden ms-2" onClick={()=>setTheme((cur)=>!cur)}>{theme ?<MdOutlineDarkMode size={25} className="text-violet-900" /> : <MdOutlineLightMode size={25} className="text-blue-600"/> }</span>
         </div>
       </div>
 
@@ -90,6 +90,11 @@ const Header = () => {
           ))}
           
         </ul>
+        <span className="absolute bottom-0 bg-gray-500 w-full h-10 flex items-center justify-around pe-2">
+          <p className={theme?"text-black text-md":"text-white text-md"}>{theme ? "Light":"Dark"}</p>
+          <Togglebtn/>
+        </span>
+
       </nav>
 
       {/* Overlay */}

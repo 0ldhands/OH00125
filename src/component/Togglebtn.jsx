@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { Usercontext } from "../Context/Context";
 
-const ToggleSwitch = () => {
+const Togglebtn = () => {
   const { theme, setTheme } = useContext(Usercontext);
 
   return (
     <div
       onClick={() => setTheme((cur) => !cur)}
-      className={`w-14 h-8 flex items-center rounded-full p-1 cursor-pointer ${
-        theme ? "bg-blue-600" : "bg-gray-400"
+      className={`w-14 h-7 flex items-center rounded-full p-1 cursor-pointer ${
+        theme ? "bg-gray-400" : "bg-black"
       }`}
     >
       <motion.div
@@ -29,4 +29,4 @@ const ToggleSwitch = () => {
   );
 };
 
-export default ToggleSwitch;
+export default Togglebtn;

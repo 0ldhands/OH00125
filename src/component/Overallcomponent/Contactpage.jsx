@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react"; 
 import handshake from "../../assets/handshake.png";
+import { Usercontext } from "../../Context/Context";
 
 const ContactPage = () => {
+  const{theme}=useContext(Usercontext)
   return (
-    <div className=" m-5 p-2 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-white">
+    <div className={`m-5 p-2 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-r ${theme?"from-indigo-500 via-purple-600 to-pink-500":"from-gray-500 via-gray-900 to-gray-500"} text-white`}>
       {/* Top wave design */}
       <svg
         className="absolute top-0 left-0 w-full"

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import '../index.css'
 import { FaInstagram } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
@@ -8,7 +8,7 @@ import { Usercontext } from '../Context/Context';
 
 const Footer = () => {
 
-  const{theme,setTheme}=useContext(Usercontext)
+  const { theme } = useContext(Usercontext);
 
   return (
     <div>
@@ -20,15 +20,19 @@ const Footer = () => {
         <ul className='m-3 flex'>
           {/* Phone */}
           <li className='relative group inline-block sm:mx-10 mx-5'>
-            <IoCall size={25} className="text-white cursor-pointer" />
+            <a href="tel:+919843938246">
+              <IoCall size={25} className="text-white cursor-pointer" />
+            </a>
             <span className="absolute bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs rounded-md bg-gray-800 text-white opacity-0 group-hover:opacity-100 transition">
-             +91-9843938246
+              +91-9843938246
             </span>
           </li>
 
           {/* Instagram */}
           <li className='relative group inline-block sm:mx-10 mx-5'>
-            <FaInstagram size={25} className="text-white cursor-pointer" />
+            <a href="https://www.instagram.com/sekar2486" target="_blank" rel="noopener noreferrer">
+              <FaInstagram size={25} className="text-white cursor-pointer" />
+            </a>
             <span className="absolute bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs rounded-md bg-gray-800 text-white opacity-0 group-hover:opacity-100 transition">
               Instagram
             </span>
@@ -36,17 +40,21 @@ const Footer = () => {
 
           {/* Gmail */}
           <li className='relative group inline-block sm:mx-10 mx-5'>
-            <BiLogoGmail size={25} className="text-white cursor-pointer" />
+            <a href="mailto:sekar2486@gmail.com">
+              <BiLogoGmail size={25} className="text-white cursor-pointer" />
+            </a>
             <span className="absolute bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs rounded-md bg-gray-800 text-white opacity-0 group-hover:opacity-100 transition">
-             sekar2486@gmail.com
+              sekar2486@gmail.com
             </span>
           </li>
 
           {/* LinkedIn */}
           <li className='relative group inline-block sm:mx-10 mx-5'>
-            <FaLinkedin size={25} className="text-white cursor-pointer"/>
+            <a href="https://linkedin.com/in/sekar2486" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin size={25} className="text-white cursor-pointer" />
+            </a>
             <span className="absolute bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs rounded-md bg-gray-800 text-white opacity-0 group-hover:opacity-100 transition">
-             linkedin.com/in/sekar2486
+              linkedin.com/in/sekar2486
             </span>
           </li>
         </ul>
@@ -57,5 +65,4 @@ const Footer = () => {
   )
 }
 
-
-export default Footer
+export default Footer;

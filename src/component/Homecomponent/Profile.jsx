@@ -26,7 +26,7 @@ const Profile = () => {
 
   return (
     <div
-      className={`relative border-1 ${
+      className={`relative border-1${
         theme ? " border-violet-300" : "border-gray-600"
       } m-5 rounded-2xl p-3`}
       style={{ backgroundColor: bgColor }}
@@ -79,7 +79,7 @@ const Profile = () => {
               className={`font-medium sm:text-1xl p-2 sm:ml-0 sm:p-2 ${
                 theme
                   ? "text-violet-600 bg-violet-300"
-                  : "text-blue-500 bg-violet-300"
+                  : "text-blue-500 bg-gray-300"
               } sm:m-0 m-1  rounded-2xl`}
             >
               Full-Time Trader & Investor |Specialist- Credit Analyst |
