@@ -8,7 +8,6 @@ import { FcProcess } from "react-icons/fc";
 import { SiAdobeaudition } from "react-icons/si";
 import { BsGraphUp } from "react-icons/bs";
 import funct from "../../assets/function.jpg";
-import LazyLoad from "react-lazyload";
 import { Usercontext } from "../../Context/Context";
 
 const FunctionalAreasCard = () => {
@@ -36,13 +35,13 @@ const FunctionalAreasCard = () => {
   return (
     <div className="border-1 border-violet-200 rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out">
       {/* Image Section */}
-      <LazyLoad height={200} offset={100}>
+   
         <img
           src={funct}
           alt="Functional illustration"
           className="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-700 ease-out"
         />
-      </LazyLoad>
+     
 
       {/* Content Section */}
       <div className="sm:m-5 m-2">

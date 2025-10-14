@@ -2,7 +2,6 @@ import React, { forwardRef, useContext } from "react";
 import { CgLoadbarDoc } from "react-icons/cg";
 import ProjectImage from "../../assets/Project.jpg";
 import { Usercontext } from "../../Context/Context";
-import LazyLoad from "react-lazyload";
 
 const ProjectsCard = forwardRef((props, ref) => {
   const { Projects } = useContext(Usercontext);
@@ -29,13 +28,13 @@ const ProjectsCard = forwardRef((props, ref) => {
       className="border-2 border-violet-200 rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out"
     >
       {/* Image Section */}
-      <LazyLoad height={200} offset={100}>
+      
         <img
           src={ProjectImage}
           alt="Project"
           className="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-700 ease-out"
         />
-      </LazyLoad>
+      
 
       {/* Content Section */}
       <div className="sm:m-5 m-2">

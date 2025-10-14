@@ -5,20 +5,18 @@ import { GiStrong } from "react-icons/gi";
 import { MdOutlineDynamicFeed } from "react-icons/md";
 import { SiGamemaker } from "react-icons/si";
 import Strength from "../../assets/strength.jpg";
-import LazyLoad from "react-lazyload";
 
 const Strengthcard = () => {
   return (
     <div className="border-2 border-violet-200 rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out">
       {/* Image Section */}
-      <LazyLoad height={200} offset={100}>
+    
         <img
           src={Strength}
           alt="Strength illustration"
           className="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-700 ease-out"
         />
-      </LazyLoad>
-
+      
       {/* Content Section */}
       <div className="sm:m-5 m-2">
         <h3 className="text-2xl sm:mb-4 mb-2 font-bold text-violet-800">
