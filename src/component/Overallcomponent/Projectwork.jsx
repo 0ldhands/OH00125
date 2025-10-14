@@ -6,9 +6,7 @@ import jdlassist from "../../assets/project/jdlassist.gif";
 import paybill from "../../assets/project/paybill.gif";
 import projecthoriz from "../../assets/prohoriz.jpg"
 
-// =====================
-// 🧩 Project Data
-// =====================
+
 const projectData = [
   {
     title: "Pay Bill Generation",
