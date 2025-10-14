@@ -23,7 +23,7 @@ const App = () => {
         setTheme,
       }}
     >
-     <div id={theme ? "body" : "bodyt"}>
+     <div id={theme ? "body" : "bodyt"} className="min-h-[100dvh] bg-gray-900">
        <Router>
         <Routes>
           <Route path="/" element={<Home />} />
