@@ -15,6 +15,15 @@ const Profile = () => {
     ? "bg-violet-800 hover:bg-violet-600"
     : "bg-blue-600 hover:bg-blue-500";
 
+     const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = `/files/Resume.pdf`;
+    link.download = "Gnanasekar_resume";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div
       className={`relative border-1 ${
@@ -47,7 +56,7 @@ const Profile = () => {
       {/* Content */}
       <div className="flex sm:justify-around items-center sm:gap-0 gap-6  flex-col-reverse sm:px-10 sm:flex-row sm:my-3 relative z-10 p-5 sm:p-0">
         {/* Text Content */}
-        <div className="flex items-center">
+        <div className="flex items-center ">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -81,9 +90,11 @@ const Profile = () => {
                 theme ? "text-gray-500" : "text-gray-300"
               }`}
             >
-              <a href="">
+              <div className="flex w-full justify-center">
+                <a onClick={handleDownload} className="cursor-pointer">
                 click to download <span className="underline">resume</span>
               </a>
+              </div>
             </div>
           </motion.div>
         </div>

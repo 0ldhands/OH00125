@@ -44,7 +44,7 @@ const Strengthcard = () => {
   const visibleItems = showMore ? items : items.slice(0, 5);
 
   return (
-    <div className="border-1 border-violet-200 rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out">
+    <div className={`border-1 ${theme ? "border-violet-200" :"border-gray-600"}  rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out`}>
       {/* Image Section */}
       <img
         src={Strength}

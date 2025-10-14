@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import "../../index.css"
 import coin from "../../assets/Hobbies/coins.jpeg"
 import badminton from "../../assets/Hobbies/badminton.jpeg"
 import library from "../../assets/Hobbies/library.jpeg"
+import { Usercontext } from "../../Context/Context";
 
 const hobbies = [
   {
@@ -35,6 +36,8 @@ const hobbies = [
 const HobbyCard = ({ hobby }) => {
   const [flipped, setFlipped] = useState(false);
 
+  const{theme}=useContext(Usercontext)
+
   return (
     <motion.div
       className="relative w-full h-64 cursor-pointer perspective"
@@ -47,17 +50,17 @@ const HobbyCard = ({ hobby }) => {
         animate={{ rotateY: flipped ? 180 : 0 }}
       >
         {/* Front Side */}
-        <div className="absolute inset-0 bg-white rounded-2xl overflow-hidden shadow-lg backface-hidden">
+        <div className={`absolute inset-0 ${theme?"bg-white":"bg-gray-600"} rounded-2xl overflow-hidden shadow-lg backface-hidden"`}>
           <img
             src={hobby.img}
             alt={hobby.name}
             className="w-full h-40 object-cover"
           />
           <div className="p-4 text-center">
-            <h3 className="text-xl font-semibold text-gray-700">
+            <h3 className={`text-xl font-semibold ${theme?"text-gray-700":"text-gray-900"}`}>
               {hobby.name}
             </h3>
-            <p className="text-gray-500 text-sm mt-1">(click to see more)</p>
+            <p className={`${theme?"text-gray-500":"text-gray-300"} text-sm mt-1`}>(click to see more)</p>
           </div>
         </div>
 
@@ -71,11 +74,12 @@ const HobbyCard = ({ hobby }) => {
 };
 
 const HobbiesSection = () => {
+  const {theme}=useContext(Usercontext)
   return (
     <section className="py-16 " id="hobbies">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-12">
-          My <span className="text-blue-600">Hobbies</span>
+        <h2 className={`text-4xl font-bold ${theme?"text-gray-800":"text-gray-300"} mb-12`}>
+          My Hobbies
         </h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -44,10 +44,10 @@ const Edu = () => {
   const {theme,setTheme}=useContext(Usercontext)
 
   return (
-    <section className="min-h-screen py-12 px-5 bg-gradient-to-br from-violet-200 via-violet-900 to-violet-200">
+    <section className={`min-h-screen py-12 px-5 bg-gradient-to-br ${theme?"from-violet-200 via-violet-900 to-violet-200":"from-gray-500 via-gray-900 to-gray-500"}`}>
       {/* Header */}
       <motion.h1
-        className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12 relative"
+        className={`text-3xl md:text-4xl font-bold text-center ${theme?"text-gray-900":"text-gray-300"}  mb-12 relative`}
         variants={headingVariants}
         initial="hidden"
         animate="visible"
@@ -61,7 +61,7 @@ const Edu = () => {
         {education.map((edu, i) => (
           <motion.div
             key={i}
-            className="relative overflow-hidden rounded-2xl shadow-lg bg-white/80 backdrop-blur-lg border border-violet-100 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+            className={`relative overflow-hidden rounded-2xl shadow-lg  backdrop-blur-lg border ${theme?"bg-white/80 border-violet-100":"bg-gray-500 border-gray-400"}  hover:shadow-2xl hover:scale-[1.02] transition-all duration-300`}
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
@@ -77,26 +77,25 @@ const Edu = () => {
                 <img src={edu.image} alt={edu.title} className="w-70 h-50"/>
               </div>
               <motion.h3
-                className="text-xl font-semibold text-gray-800 mb-2"
-                whileHover={{ color: "#5B21B6" }}
+                className={`text-xl font-semibold ${theme?"text-gray-800 hover:text-violet-600":"text-gray-900 hover:text-gray-800"} mb-2`}
               >
                 {edu.title}
               </motion.h3>
               <motion.span
-                className="block text-sm font-medium text-indigo-600 mb-4"
+                className={`block text-sm font-medium ${theme?"text-violet-600":"text-gray-700"} mb-4`}
                 whileHover={{ scale: 1.05 }}
               >
                 {edu.year}
               </motion.span>
 
               {Array.isArray(edu.subtitle) ? (
-                <ul className="list-disc list-inside text-gray-600 space-y-1">
+                <ul className={`list-disc list-inside ${theme?"text-gray-600":"text-gray-300"} space-y-1`}>
                   {edu.subtitle.map((s, idx) => (
                     <li key={idx}>{s}</li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-gray-600">{edu.subtitle}</p>
+                <p className={theme?"text-gray-600":"text-gray-300"}>{edu.subtitle}</p>
               )}
             </div>
 

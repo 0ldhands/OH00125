@@ -124,7 +124,7 @@ export default function CertificationsShowcase() {
                 {cert.desc}
               </motion.p>
               <motion.button
-                className={`mt-4 px-3 py-1.5 text-sm text-white ${theme?"bg-violet-600 hover:bg-violet-500":"bg-blue-500 hover:bg-blue-400"}  rounded-md`}
+                className={`mt-4 px-3 py-1.5 text-sm text-white ${theme?"bg-violet-600 hover:bg-violet-500":"bg-gray-500 hover:bg-gray-400 hover:text-black"}  rounded-md`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

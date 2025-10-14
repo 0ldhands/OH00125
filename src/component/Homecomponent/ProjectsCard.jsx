@@ -59,7 +59,7 @@ const ProjectsCard = forwardRef((props, ref) => {
   return (
     <div
       ref={ref || Projects}
-      className="border-1 border-violet-200 rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out"
+      className={`border-1 ${theme ? "border-violet-200" :"border-gray-600"}  rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out`}
     >
       {/* Image Section */}
       <img

@@ -4,6 +4,13 @@ import { useContext, useState } from "react";
 import { Usercontext } from "../Context/Context";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
+import { HiMiniHome } from "react-icons/hi2";
+import { IoSchoolSharp } from "react-icons/io5";
+import { PiCertificateBold } from "react-icons/pi";
+import { FaSuitcase } from "react-icons/fa";
+import { AiFillExperiment } from "react-icons/ai";
+import { IoMdContact } from "react-icons/io";
+import { FaClover } from "react-icons/fa6";
 
 
 
@@ -15,13 +22,13 @@ const Header = () => {
   const{theme,setTheme}=val
 
   const navItems = [
-    { label: "Home", path: "/" },
-    { label: "Education", path: "/educations"},
-    { label: "Certifications", path: "/certificate"},
-    { label: "Experience", path: "/experience"},
-    { label: "Projects", path: "/project"},
-     { label: "Hobbies", path: "/hobbieslayout"},
-    { label: "Contact", path: "/contact",special:true},
+    { label: "Home", path: "/" ,logo:<HiMiniHome size={25} className="inline-block me-3"/>},
+    { label: "Education", path: "/educations",logo:<IoSchoolSharp size={25} className="inline-block me-3"/>},
+    { label: "Certifications", path: "/certificate",logo:<PiCertificateBold size={25} className="inline-block me-3"/>},
+    { label: "Experience", path: "/experience",logo:<FaSuitcase size={25} className="inline-block me-3"/>},
+    { label: "Projects", path: "/project",logo:<AiFillExperiment size={25} className="inline-block me-3"/>},
+     { label: "Hobbies", path: "/hobbieslayout",logo:<FaClover size={25} className="inline-block me-3"/>},
+    { label: "Contact", path: "/contact",special:true,logo:<IoMdContact size={25} className="inline-block me-3"/>},
    ,
   ];
 
@@ -77,7 +84,7 @@ const Header = () => {
 
                 onClick={() => setView(item.btn)}
               >
-                {item.label}
+                {item.logo}{item.label}
               </Link>
             </li>
           ))}
