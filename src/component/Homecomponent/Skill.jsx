@@ -6,6 +6,7 @@ import powerbi from "../../assets/icons/powerbi.png";
 import sql from "../../assets/icons/database.png";
 import "../../index.css";
 import LazyLoad from "react-lazyload";
+import powerpoint from "../../assets/powerpoint.png"
 import { Usercontext } from "../../Context/Context";
 
 const skills = [
@@ -13,16 +14,18 @@ const skills = [
   { name: "Excel", img: excel, spec: "Microsoft Excel — Data Analysis & Formulas" },
   { name: "Power BI", img: powerbi, spec: "Power BI — Data Visualization & Dashboards" },
   { name: "MySQL", img: sql, spec: "MySQL — Database Design & Queries" },
-  { name: "MySQL", img: sql, spec: "MySQL — Database Design & Queries" },
+  { name: "Power point", img: powerpoint, spec: "Power point — Data presentation" },
 ];
 
 // Card Component
 const SkillCard = ({ skill, index }) => {
   const [hovered, setHovered] = useState(false);
 
+  const {theme}=useContext(Usercontext)
+
   return (
     <motion.div
-      className="relative flex flex-col items-center bg-gray-600/80 rounded-xl p-4 shadow-md hover:shadow-violet-400/50 cursor-pointer backdrop-blur-sm transition-transform duration-300 hover:scale-110 hover:-translate-y-2"
+      className={`relative flex flex-col ${theme ? "bg-violet-600/80":"bg-gray-600/80"} items-center  rounded-xl p-4 shadow-md hover:shadow-violet-400/50 cursor-pointer backdrop-blur-sm transition-transform duration-300 hover:scale-110 hover:-translate-y-2`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -67,7 +70,7 @@ export default function Skill() {
       {/* Content Section */}
       <div className="relative z-10 sm:p-8 p-5 backdrop-blur-md rounded-2xl shadow-2xl">
         <motion.h1
-          className="text-3xl sm:text-4xl font-bold text-center text-white mb-10 drop-shadow-[0_2px_8px_rgba(167,139,250,0.7)]"
+          className={`text-3xl sm:text-4xl font-bold text-center ${theme?"text-white":"text-gray-900"} mb-10 drop-shadow-[0_2px_8px_rgba(167,139,250,0.7)]`}
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

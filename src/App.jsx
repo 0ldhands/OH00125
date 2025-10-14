@@ -10,6 +10,7 @@ import Certificate from "./pages/Certificate.jsx";
 import Experience from "./pages/Experience.jsx";
 import Educations from "./pages/Educations.jsx";
 import Project from "./pages/Project.jsx";
+import Hobbieslayout from "./layout/Hobbieslayout.jsx";
 
 const App = () => {
 
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/Certificate" element={<Certificate />} />
           <Route path="/Experience" element={<Experience />} />
           <Route path="/Project" element={<Project />} />
+          <Route path="/Hobbieslayout" element={<Hobbieslayout />} />
         </Routes>
       </Router>
      </div>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FiArrowDown } from "react-icons/fi";
+import DetailExperience from "./DetailExperience";
+import { Usercontext } from "../../Context/Context";
 
 const Workexperience = () => {
   const work = [
@@ -42,9 +44,11 @@ const Workexperience = () => {
     },
   ];
 
+  const {theme,setTheme}=useContext(Usercontext)
+
   return (
-    <div className="p-6 sm:p-10 bg-gradient-to-r from-gray-50 to-purple-50">
-      <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12">
+    <div className={`p-6 sm:p-10`}>
+      <h1 className={`text-2xl md:text-3xl font-bold text-center ${theme?"text-gray-800":"text-gray-300"} mb-12`}>
         Work Experience
       </h1>
 
@@ -93,6 +97,7 @@ const Workexperience = () => {
           
         ))}
       </div>
+      <DetailExperience/>
     </div>
   );
 };

@@ -33,7 +33,7 @@ const Greet = () => {
   return (
     <div className="flex flex-col items-center">
       <motion.p
-        className="p-5 text-center bg-violet-700 sm:m-5 mx-5 my-2 sm:mt-10 sm:rounded-3xl rounded-2xl text-white text-lg leading-relaxed"
+        className="sm:p-3 p-5 text-center bg-violet-700 sm:m-5 mx-5 sm:my-2 my-1  sm:mt-0 sm:rounded-3xl rounded-2xl text-white text-lg leading-relaxed"
         id={theme ? "greet" : "greets"}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -47,10 +47,10 @@ const Greet = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <FaAnglesDown size={34} className="sm:mt-0 mt-5" />
+        <FaAnglesDown size={34} className="sm:mt-0 my-2" />
       </motion.div>
 
-      <p className="block sm:hidden mt-5 text-xl">Scroll down to see portfolio</p>
+      <p className="block sm:hidden  text-xl">Scroll down to see portfolio</p>
     </div>
   );
 };

@@ -11,11 +11,11 @@ const Profile = () => {
   // Centralize theme colors
   const bgColor = theme && "white";
   const waveColor = theme ? "#7c3aed" : "#155dfc";
-  const buttonColor = theme ? "bg-violet-800" : "bg-blue-600";
+  const buttonColor = theme ? "bg-violet-800 hover:bg-violet-600" : "bg-blue-600 hover:bg-blue-500";
 
   return (
     <div
-      className="relative"
+      className="relative border-1 border-gray-600 m-5 rounded-2xl p-3"
       style={{ backgroundColor: bgColor }}
       id="profile-container"
     >
@@ -49,7 +49,7 @@ const Profile = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
-           <div className={theme ? `text-black` : `text-gray-300`}>
+           <div className={`sm:mx-0 mx-2 ${theme ? `text-black` : `text-gray-300`}`}>
              <h1 className="font-medium sm:text-4xl sm:p-2 sm:m-0 m-1">
               Hello !
             </h1>
@@ -60,24 +60,12 @@ const Profile = () => {
               </span>
             </h3>
            </div>
-            <h2 className={`font-medium sm:text-1xl p-2 sm:ml-0 sm:p-2 ${theme ? "text-violet-600 bg-violet-300":"text-blue-500 bg-gray-500"} sm:m-0 m-1  rounded-2xl`}>
+            <h2 className={`font-medium sm:text-1xl p-2 sm:ml-0 sm:p-2 ${theme ? "text-violet-600 bg-violet-300":"text-blue-500 bg-violet-300"} sm:m-0 m-1  rounded-2xl`}>
               Full-Time Trader & Investor |Specialist- Credit Analyst | Versatile Professional with Multi-Industry
 Experience
             </h2>
-            <div className="sm:mt-5 mt-3 flex justify-evenly">
-              <button
-                className={`${buttonColor} text-white p-2 sm:p-3 text-sm rounded-sm hover:bg-violet-500`}
-              >
-                <a href="public/Resume.pdf" download="My_Resume.pdf">
-                  Resume
-                </a>
-              </button>
-              <button
-                className={`${buttonColor} text-white p-2 sm:p-3 text-sm rounded-sm hover:bg-violet-500`}
-                onClick={() => scrollToSection("Projectwork")}
-              >
-                Portfolio
-              </button>
+            <div className={`sm:mt-5 ms-2 mt-3 flex ${theme?"text-gray-500":"text-gray-300"}`}>
+            <a href="">click to download <span className="underline">resume</span></a>
             </div>
           </motion.div>
         </div>

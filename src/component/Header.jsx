@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useContext, useState } from "react";
 import { Usercontext } from "../Context/Context";
 import { MdOutlineDarkMode } from "react-icons/md";
-import { MdDarkMode } from "react-icons/md";
+import { MdOutlineLightMode } from "react-icons/md";
 
 
 
@@ -20,8 +20,9 @@ const Header = () => {
     { label: "Certifications", path: "/Certificate"},
     { label: "Experience", path: "/Experience"},
     { label: "Projects", path: "/Project"},
-    { label: "Hobbies", path: "/"},
+     { label: "Hobbies", path: "/Hobbieslayout"},
     { label: "Contact", path: "/Contact",special:true},
+   ,
   ];
 
 
@@ -32,12 +33,15 @@ const Header = () => {
         <h1 className={`text-2xl sm:text-3xl font-bold ${theme ? "text-violet-800" : "text-blue-600"} `}>
           GNANA SEKAR
         </h1>
-        <button
+        <div className="flex items-center">
+          <button
           className="sm:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
+        <span className="sm:hidden ms-2" onClick={()=>setTheme((cur)=>!cur)}>{theme ?<MdOutlineDarkMode size={20} className="text-violet-900" /> : <MdOutlineLightMode size={20} className="text-blue-600"/> }</span>
+        </div>
       </div>
 
       {/* Desktop Nav */}
@@ -55,7 +59,7 @@ const Header = () => {
               </Link>
             </li>
           ))}
-          <li onClick={()=>setTheme((cur)=>!cur)}>{theme ?<MdOutlineDarkMode size={20} /> : <MdDarkMode size={20}/> }</li>
+          <li onClick={()=>setTheme((cur)=>!cur)}>{theme ?<MdOutlineDarkMode size={20} className="text-violet-900" /> : <MdOutlineLightMode size={20} className="text-blue-600"/> }</li>
         </ul>
       </nav>
 
@@ -65,6 +69,7 @@ const Header = () => {
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           transition-transform duration-300 ease-in-out z-50 sm:hidden`}
       >
+        
         <ul className="p-6 space-y-6 text-lg">
           {navItems.map((item, i) => (
             <li key={i}  className="border-b-2 border-b-violet-700 pb-2">
@@ -77,6 +82,7 @@ const Header = () => {
               </Link>
             </li>
           ))}
+          
         </ul>
       </nav>
 

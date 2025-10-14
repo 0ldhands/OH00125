@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
+import Anna from "../../assets/Educationlogo/anna.png"
+import mahendra from "../../assets/Educationlogo/mahendra.png"
+import { Usercontext } from "../../Context/Context";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 80, scale: 0.9 },
@@ -21,6 +24,7 @@ const education = [
     title: "Master of Business Administration (Financial Management Services)",
     subtitle: "Anna University, Chennai [First Class]",
     year: "Jan’2010 – Feb’2012",
+    image:Anna
   },
   {
     title:
@@ -31,15 +35,19 @@ const education = [
       "Served as Student Representative Head for 6 Semesters.",
     ],
     year: "Apr’2003 – Apr’2007",
+    image:mahendra
   },
 ];
 
 const Edu = () => {
+
+  const {theme,setTheme}=useContext(Usercontext)
+
   return (
-    <section className="min-h-screen py-12 px-5 bg-gradient-to-br from-indigo-50 via-white to-purple-100">
+    <section className="min-h-screen py-12 px-5 bg-gradient-to-br from-violet-200 via-violet-900 to-violet-200">
       {/* Header */}
       <motion.h1
-        className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12 relative"
+        className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12 relative"
         variants={headingVariants}
         initial="hidden"
         animate="visible"
@@ -65,6 +73,9 @@ const Edu = () => {
 
             {/* Content */}
             <div className="relative p-6">
+              <div className="flex justify-center">
+                <img src={edu.image} alt={edu.title} className="w-70 h-50"/>
+              </div>
               <motion.h3
                 className="text-xl font-semibold text-gray-800 mb-2"
                 whileHover={{ color: "#5B21B6" }}
