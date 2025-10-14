@@ -15,7 +15,7 @@ const Profile = () => {
 
   return (
     <div
-      className="relative border-1 border-gray-600 m-5 rounded-2xl p-3"
+      className={`relative border-1 ${theme?" border-violet-300":"border-gray-600"} m-5 rounded-2xl p-3`}
       style={{ backgroundColor: bgColor }}
       id="profile-container"
     >

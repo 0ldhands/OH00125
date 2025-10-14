@@ -69,13 +69,11 @@ const Header = () => {
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           transition-transform duration-300 ease-in-out z-50 sm:hidden`}
       >
-        
         <ul className="p-6 space-y-6 text-lg">
           {navItems.map((item, i) => (
             <li key={i}  className="border-b-2 border-b-violet-700 pb-2">
               <Link
                 to={item.path}
-               
                 onClick={() => setView(item.btn)}
               >
                 {item.label}
