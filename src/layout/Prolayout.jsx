@@ -3,7 +3,7 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import Projects from '../component/Overallcomponent/Projectwork'
 
-const Projectlayout = () => {
+const Prolayout = () => {
   return (
     <div>
         <Header/>
@@ -13,4 +13,4 @@ const Projectlayout = () => {
   )
 }
 
-export default Projectlayout
+export default Prolayout

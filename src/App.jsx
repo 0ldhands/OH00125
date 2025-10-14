@@ -9,7 +9,7 @@ import './index.css'
 import Certificate from "./pages/Certificate.jsx";
 import Experience from "./pages/Experience.jsx";
 import Educations from "./pages/Educations.jsx";
-import Projectlayout from "./layout/projectlayout.jsx";
+import Prolayout from "./layout/Prolayout.jsx";
 import Hobbieslayout from "./layout/Hobbieslayout.jsx";
 
 const App = () => {
@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/Educations" element={<Educations />} />
           <Route path="/Certificate" element={<Certificate />} />
           <Route path="/Experience" element={<Experience />} />
-          <Route path="/Project" element={<Projectlayout />} />
+          <Route path="/Project" element={<Prolayout />} />
           <Route path="/Hobbieslayout" element={<Hobbieslayout />} />
         </Routes>
       </Router>
