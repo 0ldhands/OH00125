@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import dp from "../../assets/dp.jpeg";
-import "../../index.css"
+import "../../index.css";
 import { Usercontext } from "../../Context/Context";
 import { useContext } from "react";
 
@@ -11,11 +11,15 @@ const Profile = () => {
   // Centralize theme colors
   const bgColor = theme && "white";
   const waveColor = theme ? "#7c3aed" : "#155dfc";
-  const buttonColor = theme ? "bg-violet-800 hover:bg-violet-600" : "bg-blue-600 hover:bg-blue-500";
+  const buttonColor = theme
+    ? "bg-violet-800 hover:bg-violet-600"
+    : "bg-blue-600 hover:bg-blue-500";
 
   return (
     <div
-      className={`relative border-1 ${theme?" border-violet-300":"border-gray-600"} m-5 rounded-2xl p-3`}
+      className={`relative border-1 ${
+        theme ? " border-violet-300" : "border-gray-600"
+      } m-5 rounded-2xl p-3`}
       style={{ backgroundColor: bgColor }}
       id="profile-container"
     >
@@ -49,33 +53,53 @@ const Profile = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
-           <div className={`sm:mx-0 mx-2 ${theme ? `text-black` : `text-gray-300`}`}>
-             <h1 className="font-medium sm:text-4xl sm:p-2 sm:m-0 m-1">
-              Hello !
-            </h1>
-            <h3 className="sm:text-2xl sm:p-2 sm:ml-0 sm:m-0 m-1">
-              I am{" "}
-              <span className="font-bold">
-                Gnanasekar Murugaamirthan
-              </span>
-            </h3>
-           </div>
-            <h2 className={`font-medium sm:text-1xl p-2 sm:ml-0 sm:p-2 ${theme ? "text-violet-600 bg-violet-300":"text-blue-500 bg-violet-300"} sm:m-0 m-1  rounded-2xl`}>
-              Full-Time Trader & Investor |Specialist- Credit Analyst | Versatile Professional with Multi-Industry
-Experience
+            <div
+              className={`sm:mx-0 mx-2 ${
+                theme ? `text-black` : `text-gray-300`
+              }`}
+            >
+              <h1 className="font-medium sm:text-4xl sm:p-2 sm:m-0 m-1">
+                Hello !
+              </h1>
+              <h3 className="sm:text-2xl sm:p-2 sm:ml-0 sm:m-0 m-1">
+                I am{" "}
+                <span className="font-bold">Gnanasekar Murugaamirthan</span>
+              </h3>
+            </div>
+            <h2
+              className={`font-medium sm:text-1xl p-2 sm:ml-0 sm:p-2 ${
+                theme
+                  ? "text-violet-600 bg-violet-300"
+                  : "text-blue-500 bg-violet-300"
+              } sm:m-0 m-1  rounded-2xl`}
+            >
+              Full-Time Trader & Investor |Specialist- Credit Analyst |
+              Versatile Professional with Multi-Industry Experience
             </h2>
-            <div className={`sm:mt-5 ms-2 mt-3 flex ${theme?"text-gray-500":"text-gray-300"}`}>
-            <a href="">click to download <span className="underline">resume</span></a>
+            <div
+              className={`sm:mt-5 ms-2 mt-3 flex ${
+                theme ? "text-gray-500" : "text-gray-300"
+              }`}
+            >
+              <a href="">
+                click to download <span className="underline">resume</span>
+              </a>
             </div>
           </motion.div>
         </div>
 
         {/* Profile Image */}
-        <div className="flex items-center">
+        <div className="relative flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-64 h-64 bg-[radial-gradient(circle_at_center,_#6366f1_1px,_transparent_1px)] bg-[length:20px_20px] opacity-30"></div>
+          </div>
+
           <motion.img
             src={dp}
             alt="Profile Picture"
-            className={`rounded-full shadow-2xl ${theme ? "shadow-violet-500" : "shadow-blue-500"} sm:w-60 w-50 sm:p-5`}
+            className={`relative rounded-full shadow-2xl ${
+              theme ? "shadow-violet-500" : "shadow-blue-500"
+            } sm:w-60 w-50 sm:p-5`}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}

@@ -40,7 +40,7 @@ const Header = () => {
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-        <span className="sm:hidden ms-2" onClick={()=>setTheme((cur)=>!cur)}>{theme ?<MdOutlineDarkMode size={20} className="text-violet-900" /> : <MdOutlineLightMode size={20} className="text-blue-600"/> }</span>
+        <span className="sm:hidden ms-2" onClick={()=>setTheme((cur)=>!cur)}>{theme ?<MdOutlineDarkMode size={25} className="text-violet-900" /> : <MdOutlineLightMode size={25} className="text-blue-600"/> }</span>
         </div>
       </div>
 
@@ -65,15 +65,16 @@ const Header = () => {
 
       {/* Mobile Sidebar */}
       <nav
-        className={`fixed top-0 left-0 h-full w-64 bg-violet-800 text-white transform
+        className={`fixed top-0 left-0 h-full w-64 ${theme?"bg-white text-violet-500":"bg-gray-700 text-white"}  transform
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           transition-transform duration-300 ease-in-out z-50 sm:hidden`}
       >
         <ul className="p-6 space-y-6 text-lg">
           {navItems.map((item, i) => (
-            <li key={i}  className="border-b-2 border-b-violet-700 pb-2">
+            <li key={i}  className="border-b-1 border-b-gray-500 pb-2">
               <Link
                 to={item.path}
+
                 onClick={() => setView(item.btn)}
               >
                 {item.label}

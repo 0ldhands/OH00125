@@ -45,7 +45,7 @@ const FunctionalAreasCard = () => {
 
       {/* Content Section */}
       <div className="sm:m-5 m-2">
-        <h3 className={`text-2xl sm:mb-4 mb-2 font-bold ${theme?"text-violet-800":textTheme}`}>
+        <h3 className={`text-2xl sm:mb-4 mb-2 font-bold ${theme?"text-violet-800":"text-gray-300"}`}>
           Functional Areas
         </h3>
 

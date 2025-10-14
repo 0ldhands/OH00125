@@ -47,13 +47,13 @@ const Workexperience = () => {
   const {theme,setTheme}=useContext(Usercontext)
 
   return (
-    <div className={`p-6 sm:p-10`}>
+    <div className={`p-6 sm:p-10 `}>
       <h1 className={`text-2xl md:text-3xl font-bold text-center ${theme?"text-gray-800":"text-gray-300"} mb-12`}>
         Work Experience
       </h1>
 
       {/* Timeline container */}
-      <div className="relative flex flex-col md:flex-row md:items-center md:justify-between max-w-6xl mx-auto">
+      <div className={`relative flex flex-col md:flex-row md:items-center md:justify-between max-w-6xl mx-auto border-1 ${theme?"border-violet-300":"border-gray-600"} sm:p-5 p-3 m-5 rounded-2xl`}>
         {/* Line for desktop (horizontal) */}
         <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-300 -z-10"></div>
 
@@ -63,15 +63,15 @@ const Workexperience = () => {
         {work.map((job, i) => (
           <motion.div
             key={i}
-            className="flex flex-col items-center text-center mb-12 md:mb-0"
+            className="flex flex-col items-center text-center mb-5 md:mb-0"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: i * 0.2 }}
           >
             {/* Circle */}
-            <div className="flex sm:flex-row flex-col justify-center">
-              <div className="w-28 h-28 rounded-full border-[10px] border-orange-400 flex items-center justify-center bg-white shadow-md relative z-10">
-              <div className="w-20 h-20 rounded-full border-[6px] border-gray-800 flex items-center justify-center">
+            <div className="flex sm:flex-row flex-col justify-center ">
+              <div className={`sm:w-35 sm:h-35 w-30 h-30 rounded-full border-[10px] ${theme?"border-violet-600":"border-blue-500"} flex items-center justify-center bg-white shadow-md relative z-10`}>
+              <div className="sm:w-28 sm:h-28 w-22 h-22 rounded-full border-[6px] border-gray-800 flex items-center justify-center">
                 <span className="text-xs font-semibold text-gray-700 px-2 text-center">
                   {job.year}
                 </span>
@@ -85,9 +85,9 @@ const Workexperience = () => {
 
             {/* Content */}
             <div className="mt-4 w-40">
-              <h2 className="text-sm font-bold text-purple-600">{job.role}</h2>
-              <p className="text-xs text-gray-600">{job.company}</p>
-              <p className="text-xs text-gray-500">{job.location}</p>
+              <h2 className={`text-sm font-bold ${theme?"text-purple-600":"text-blue-600"}`}>{job.role}</h2>
+              <p className={`text-xs ${theme?"text-gray-600":"text-gray-300"}`}>{job.company}</p>
+              <p className={`text-xs ${theme?"text-gray-600":"text-gray-400"}`}>{job.location}</p>
               {job.tbm && (
                 <p className="text-[10px] text-gray-500">(TBM – {job.tbm})</p>
               )}

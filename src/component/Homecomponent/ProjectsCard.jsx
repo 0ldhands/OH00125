@@ -1,10 +1,13 @@
-import React, { forwardRef, useContext } from "react";
+import React, { forwardRef, useContext, useState } from "react";
 import { CgLoadbarDoc } from "react-icons/cg";
 import ProjectImage from "../../assets/Project.jpg";
 import { Usercontext } from "../../Context/Context";
 
 const ProjectsCard = forwardRef((props, ref) => {
-  const { Projects } = useContext(Usercontext);
+  const { Projects, theme } = useContext(Usercontext);
+  const [showMore, setShowMore] = useState(false);
+
+  const textTheme = "text-blue-500";
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -22,120 +25,99 @@ const ProjectsCard = forwardRef((props, ref) => {
     document.body.removeChild(link);
   };
 
+  const items = [
+    {
+      name: "Pay Bill Generation",
+      file: "/files/paybill.xls",
+      filename: "paybill.xls",
+    },
+    {
+      name: "CashBook / CoinWar / Cash",
+      file: "/files/Cashbook.xlsm",
+      filename: "Cashbook.xlsm",
+    },
+    {
+      name: "JDL Assist",
+      file: "/files/JDLdata.xls",
+      filename: "JDLdata.xls",
+    },
+    {
+      name: "NLD Ledger",
+      file: "/files/JDLproucher.xlsm",
+      filename: "JDLproucher.xlsm",
+    },
+    {
+      name: "Project Details",
+      file: "/files/projectDetails.pdf",
+      filename: "projectDetails.pdf",
+    },
+    // Additional sample projects (for See More)
+  ];
+
+  const visibleItems = showMore ? items : items.slice(0, 4);
+
   return (
     <div
       ref={ref || Projects}
-      className="border-2 border-violet-200 rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out"
+      className="border-1 border-violet-200 rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out"
     >
       {/* Image Section */}
-      
-        <img
-          src={ProjectImage}
-          alt="Project"
-          className="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-700 ease-out"
-        />
-      
+      <img
+        src={ProjectImage}
+        alt="Project"
+        className="w-full h-64 object-cover object-top hover:scale-105 transition-transform duration-700 ease-out"
+      />
 
       {/* Content Section */}
       <div className="sm:m-5 m-2">
-        <h1 className="sm:text-2xl text-xl font-bold text-violet-800 mt-5 mb-4">
+        <h1
+          className={`sm:text-2xl text-xl font-bold mt-5 mb-4 ${
+            theme ? "text-violet-800" : "text-gray-300"
+          }`}
+        >
           Projects
         </h1>
 
-        <ul className="space-y-4 text-gray-700">
-          {/* Pay Bill Generation */}
-          <li
-            className="group cursor-pointer p-3 rounded-lg bg-violet-50 hover:bg-violet-100 hover:scale-[1.03] hover:shadow-md transition-all duration-300 flex justify-between items-center"
-            onClick={() => scrollToSection("Projectwork")}
-          >
-            <span className="font-medium group-hover:text-violet-800 transition-colors">
-              Pay Bill Generation
-            </span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleDownload("/files/paybill.xls", "paybill.xls");
-              }}
-              className="inline-flex items-center gap-1 text-violet-700 group-hover:text-violet-900 transition-all duration-300 transform group-hover:scale-110"
+        <ul
+          className={`sm:space-y-3 space-y-2 ${
+            theme ? "text-gray-700" : "text-black"
+          }`}
+        >
+          {visibleItems.map((item, index) => (
+            <li
+              key={index}
+              className={`group cursor-pointer p-3 rounded-lg ${
+                theme
+                  ? "bg-violet-50 hover:bg-violet-100"
+                  : "bg-gray-500 hover:bg-gray-400"
+              } hover:scale-[1.03] hover:shadow-md transition-all duration-300 flex justify-between items-center`}
+              onClick={() => scrollToSection("Projectwork")}
             >
-              <CgLoadbarDoc className="text-xl" />
-              <span className="text-sm font-semibold">Download</span>
-            </button>
-          </li>
-
-          {/* CashBook/CoinWar/Cash */}
-          <li
-            className="group cursor-pointer p-3 rounded-lg bg-violet-50 hover:bg-violet-100 hover:scale-[1.03] hover:shadow-md transition-all duration-300 flex justify-between items-center"
-            onClick={() => scrollToSection("Projectwork")}
-          >
-            <span className="font-medium group-hover:text-violet-800 transition-colors">
-              CashBook / CoinWar / Cash
-            </span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleDownload("/files/Cashbook.xlsm", "Cashbook.xlsm");
-              }}
-              className="inline-flex items-center gap-1 text-violet-700 group-hover:text-violet-900 transition-all duration-300 transform group-hover:scale-110"
-            >
-              <CgLoadbarDoc className="text-xl" />
-              <span className="text-sm font-semibold">Download</span>
-            </button>
-          </li>
-
-          {/* JDL Assist */}
-          <li
-            className="group cursor-pointer p-3 rounded-lg bg-violet-50 hover:bg-violet-100 hover:scale-[1.03] hover:shadow-md transition-all duration-300 flex justify-between items-center"
-            onClick={() => scrollToSection("Projectwork")}
-          >
-            <span className="font-medium group-hover:text-violet-800 transition-colors">
-              JDL Assist
-            </span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleDownload("/files/JDLdata.xls", "JDLdata.xls");
-              }}
-              className="inline-flex items-center gap-1 text-violet-700 group-hover:text-violet-900 transition-all duration-300 transform group-hover:scale-110"
-            >
-              <CgLoadbarDoc className="text-xl" />
-              <span className="text-sm font-semibold">Download</span>
-            </button>
-          </li>
-
-          {/* NLD Ledger */}
-          <li
-            className="group cursor-pointer p-3 rounded-lg bg-violet-50 hover:bg-violet-100 hover:scale-[1.03] hover:shadow-md transition-all duration-300 flex justify-between items-center"
-            onClick={() => scrollToSection("Projectwork")}
-          >
-            <span className="font-medium group-hover:text-violet-800 transition-colors">
-              NLD Ledger
-            </span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleDownload("/files/JDLproucher.xlsm", "JDLproucher.xlsm");
-              }}
-              className="inline-flex items-center gap-1 text-violet-700 group-hover:text-violet-900 transition-all duration-300 transform group-hover:scale-110"
-            >
-              <CgLoadbarDoc className="text-xl" />
-              <span className="text-sm font-semibold">Download</span>
-            </button>
-          </li>
-
-          {/* Project details (extra item) */}
-          <li className="group cursor-pointer p-3 rounded-lg bg-violet-50 hover:bg-violet-100 hover:scale-[1.03] hover:shadow-md transition-all duration-300 flex justify-between items-center">
-            <span className="font-medium group-hover:text-violet-800 transition-colors">
-              Project Details
-            </span>
-            <button
-              className="inline-flex items-center gap-1 text-violet-700 group-hover:text-violet-900 transition-all duration-300 transform group-hover:scale-110"
-            >
-              <CgLoadbarDoc className="text-xl" />
-              <span className="text-sm font-semibold">View</span>
-            </button>
-          </li>
+              <span
+                className={`font-medium group-hover:${
+                  theme ? "text-violet-800" : textTheme
+                } transition-colors`}
+              >
+                {item.name}
+              </span>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDownload(item.file, item.filename);
+                }}
+                className={`inline-flex items-center gap-1 ${
+                  theme
+                    ? "text-violet-700 group-hover:text-violet-900"
+                    : "text-gray-300 group-hover:text-gray-900"
+                } transition-all duration-300 transform group-hover:scale-110`}
+              >
+                <CgLoadbarDoc className="text-xl" />
+                <span className="text-sm font-semibold">Download</span>
+              </button>
+            </li>
+          ))}
         </ul>
+       
       </div>
     </div>
   );

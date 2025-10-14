@@ -100,7 +100,7 @@ export default function DetailExperience() {
         aria-live="polite"
       >
         {/* Left column: Summary card */}
-        <aside className={`lg:col-span-1 ${theme?"bg-white":"bg-gray-600"} p-6 rounded-2xl shadow-md border border-gray-100`}>
+        <aside className={`lg:col-span-1 ${theme?"bg-white border-gray-100":"bg-gray-600 border-gray-400"} p-6 rounded-2xl shadow-md border `}>
           <div className="flex flex-col items-center gap-4">
             <div>
                <img src={banking} alt="banking" className="rounded-2xl" />
@@ -140,7 +140,7 @@ export default function DetailExperience() {
           <div className="mt-6">
             <button
               onClick={() => window.print()}
-              className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl border border-transparent bg-violet-600 text-white font-medium hover:bg-violet-500 transition"
+              className={`w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl border border-transparent ${theme?"bg-violet-600":"bg-blue-600"}  text-white font-medium hover:bg-violet-500 transition`}
             >
               <Star className="h-4 w-4" />
               Print / Export
@@ -150,7 +150,7 @@ export default function DetailExperience() {
         </aside>
 
         {/* Right column: Timeline / roles */}
-        <main className="lg:col-span-2 border-1 border-gray-300 p-5 rounded-2xl">
+        <main className={`lg:col-span-2 border-1 ${theme?"border-gray-300":"border-gray-400"} p-5 rounded-2xl`}>
           <motion.h1
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}

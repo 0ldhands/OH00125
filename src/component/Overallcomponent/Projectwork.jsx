@@ -52,10 +52,11 @@ const projectData = [
 // =====================
 const ProjectCard = ({ index, title, description, image, onImageClick }) => {
   const [expanded, setExpanded] = useState(false);
+  const{theme}=useContext(Usercontext)
 
   return (
     <motion.article
-      className="p-6 rounded-xl shadow-md bg-white/90 backdrop-blur-sm transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300"
+      className={`p-6 ${theme?"bg-white/90":"bg-gray-600"} rounded-xl shadow-md  backdrop-blur-sm transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -69,7 +70,7 @@ const ProjectCard = ({ index, title, description, image, onImageClick }) => {
             alt={title}
             className="w-full h-48 object-cover rounded-lg mb-4 shadow-sm group-hover:opacity-80 transition-opacity"
           />
-          <span className="absolute bottom-2 right-2 bg-violet-700 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+          <span className={`absolute bottom-2 right-2 ${theme?"bg-violet-700":"bg-blue-600"} text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity`}>
             Click to view
           </span>
         </div>
@@ -81,7 +82,7 @@ const ProjectCard = ({ index, title, description, image, onImageClick }) => {
       {/* Description */}
       <div className={expanded ? "space-y-2" : "line-clamp-2"}>
         {description.map((para, i) => (
-          <p key={i} className="text-gray-700 mb-2 leading-relaxed">
+          <p key={i} className={`${theme?"text-gray-700":"text-gray-400"} mb-2 leading-relaxed`}>
             {para}
           </p>
         ))}
@@ -90,7 +91,7 @@ const ProjectCard = ({ index, title, description, image, onImageClick }) => {
       {/* Show More / Less button */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="mt-2 text-sm rounded-sm cursor-pointer text-violet-700 font-medium focus:outline-none hover:underline"
+        className={`mt-2 text-sm rounded-sm cursor-pointer ${theme?"text-violet-700 hover:text-violet-400":"text-gray-900 hover:text-gray-400"} font-medium focus:outline-none hover:underline`}
       >
         {expanded ? "Show Less" : "Show More"}
       </button>
@@ -103,7 +104,7 @@ const ProjectCard = ({ index, title, description, image, onImageClick }) => {
 // =====================
 const Projects = () => {
   const val = useContext(Usercontext);
-  const { Projectwork } = val;
+  const { Projectwork,theme} = val;
 
   // For modal image view
   const [selectedImage, setSelectedImage] = useState(null);
@@ -114,7 +115,7 @@ const Projects = () => {
       ref={Projectwork}
     >
       <motion.div
-        className="max-w-6xl mx-auto p-6 rounded-2xl shadow-xl bg-violet-300 backdrop-blur-lg space-y-6"
+        className={`max-w-6xl mx-auto p-6 rounded-2xl shadow-xl ${theme?"bg-violet-300":"bg-gray-500"}  backdrop-blur-lg space-y-6`}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7 }}
@@ -148,7 +149,7 @@ const Projects = () => {
 
         {/* Additional Contributions */}
         <motion.article
-          className="p-6 rounded-xl shadow-md bg-white/90 backdrop-blur-sm transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300"
+          className={`p-6 rounded-xl shadow-md ${theme?"bg-white/90 text-gray-700":"bg-gray-600 text-gray-400"} backdrop-blur-sm transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300`}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -157,7 +158,7 @@ const Projects = () => {
           <h2 className="text-xl font-semibold mb-2 text-gray-800">
             Additional Contributions
           </h2>
-          <p className="text-gray-700 leading-relaxed">
+          <p className=" leading-relaxed">
             All of the above Excel projects were entirely self-initiated and
             served as highly effective tools in daily operations. They not only
             improved efficiency but also earned appreciation from higher
