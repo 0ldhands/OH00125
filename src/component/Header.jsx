@@ -16,12 +16,12 @@ const Header = () => {
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "Education", path: "/Educations"},
-    { label: "Certifications", path: "/Certificate"},
-    { label: "Experience", path: "/Experience"},
-    { label: "Projects", path: "/Project"},
-     { label: "Hobbies", path: "/Hobbieslayout"},
-    { label: "Contact", path: "/Contact",special:true},
+    { label: "Education", path: "/educations"},
+    { label: "Certifications", path: "/certificate"},
+    { label: "Experience", path: "/experience"},
+    { label: "Projects", path: "/project"},
+     { label: "Hobbies", path: "/hobbieslayout"},
+    { label: "Contact", path: "/contact",special:true},
    ,
   ];
 
