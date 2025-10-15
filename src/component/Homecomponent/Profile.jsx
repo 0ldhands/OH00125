@@ -26,7 +26,7 @@ const Profile = () => {
 
   return (
     <div
-      className={`relative border-1${
+      className={`relative border-1 ${
         theme ? " border-violet-300" : "border-gray-600"
       } m-5 rounded-2xl p-3`}
       style={{ backgroundColor: bgColor }}
@@ -92,7 +92,7 @@ const Profile = () => {
             >
               <div className="flex w-full justify-center">
                 <a onClick={handleDownload} className="cursor-pointer">
-                click to download <span className="underline">resume</span>
+                click to download <span className="underline font-bold">resume</span>
               </a>
               </div>
             </div>

@@ -76,7 +76,7 @@ export default function Skill() {
       <div className="relative z-10 sm:p-8 p-5 backdrop-blur-md rounded-2xl shadow-2xl">
         <motion.h1
           className={`text-3xl sm:text-4xl font-bold text-center ${
-            theme ? "text-white" : "text-gray-900"
+            theme ? "text-gray-900" : "text-white"
           } mb-10 drop-shadow-[0_2px_8px_rgba(167,139,250,0.7)]`}
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
