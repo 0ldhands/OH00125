@@ -27,7 +27,7 @@ const ProjectsCard = forwardRef((props, ref) => {
 
   const items = [
     { name: "Pay Bill Generation", file: "/files/paybill.xls", filename: "paybill.xls" },
-    { name: "CashBook / CoinWar / Cash", file: "/files/Cashbook.xlsm", filename: "Cashbook.xlsm" },
+    { name: "Cash Book", file: "/files/Cashbook.xlsm", filename: "Cashbook.xlsm" },
     { name: "JDL Assist", file: "/files/JDLdata.xls", filename: "JDLdata.xls" },
   ];
 
