@@ -29,8 +29,6 @@ const ProjectsCard = forwardRef((props, ref) => {
     { name: "Pay Bill Generation", file: "/files/paybill.xls", filename: "paybill.xls" },
     { name: "CashBook / CoinWar / Cash", file: "/files/Cashbook.xlsm", filename: "Cashbook.xlsm" },
     { name: "JDL Assist", file: "/files/JDLdata.xls", filename: "JDLdata.xls" },
-    { name: "NLD Ledger", file: "/files/JDLproucher.xlsm", filename: "JDLproucher.xlsm" },
-    { name: "Project Details", file: "/files/projectDetails.pdf", filename: "projectDetails.pdf" },
   ];
 
   const visibleItems = showMore ? items : items.slice(0, 4);
