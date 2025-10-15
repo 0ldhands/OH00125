@@ -4,6 +4,7 @@ import { Briefcase, Calendar, Star, Database } from "lucide-react";
 import dbs from "../../assets/dbs.png"
 import banking from "../../assets/banking.jpg"
 import { Usercontext } from "../../Context/Context";
+import ips from "../../assets/ibs.jpg"
 
 // Default export: ResumeComponent
 // TailwindCSS is used for styling (no import needed in this file).
@@ -13,7 +14,8 @@ const roles = [
   {
     company: "DBS Bank India Pvt Ltd",
     period: "Apr 2017 – May 2023",
-    logo:true,
+    logo:dbs,
+    st:'dbs',
     positions: [
       {
         title: "Specialist, Credit Analysis",
@@ -71,7 +73,7 @@ const roles = [
   {
     company: "IBS Software Services Pvt Ltd",
     period: "Sep 2007 – Apr 2009",
-    logo:false,
+    logo:ips,
     positions: [
       {
         title: "Software Engineer — Cochin",
@@ -112,7 +114,7 @@ export default function DetailExperience() {
               <h2 className="text-xl font-semibold">Career Snapshot</h2>
             </div>
               
-              <p className="text-sm text-gray-500 mt-1">10+ years in banking & finance, credit analysis, branch management, and software engineering background.</p>
+              <p className={`text-sm ${theme?"text-gray-500":"text-gray-400"} mt-3`}>30+ years in banking & finance, credit analysis, branch management, and software engineering background.</p>
             </div>
           </div>
 
@@ -128,23 +130,13 @@ export default function DetailExperience() {
             </div>
 
             <div className="mt-4 text-sm">
-              <span className="inline-block bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Highlights</span>
+              <span className={`inline-block  ${theme?"text-green-800 bg-green-100":"text-blue-800 bg-blue-100"} px-2 py-1 rounded-full text-xs font-medium`}>Highlights</span>
               <ul className="mt-3 ml-4 list-disc ">
                 <li>Managed portfolios of 90+ clients.</li>
                 <li>Recovered NPAs worth 3+ Crores.</li>
                 <li>Built Excel macro tools for branch operations.</li>
               </ul>
             </div>
-          </div>
-
-          <div className="mt-6">
-            <button
-              onClick={() => window.print()}
-              className={`w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl border border-transparent ${theme?"bg-violet-600":"bg-blue-600"}  text-white font-medium hover:bg-violet-500 transition`}
-            >
-              <Star className="h-4 w-4" />
-              Print / Export
-            </button>  
           </div>
           
         </aside>
@@ -165,9 +157,9 @@ export default function DetailExperience() {
               <section key={company.company} className={`${theme?"bg-white border-gray-100":"bg-gray-600 border-gray-500"} rounded-2xl shadow-sm border  overflow-hidden`}>
                 <div className="flex items-center justify-between px-5 py-4 sm:px-6">
                   <div>
-                    <p className="text-sm text-gray-500">{company.period}</p>
-                    <h2 className="text-lg font-semibold">{company.company}{company.logo && <img src={dbs} alt={company.company} className="w-20 inline-block ms-5"/>}</h2>
-                    
+                 
+                    <h2 className="text-lg font-semibold mb-2">{company.company}<img src={company.logo} alt={company.company} className={`${company.st==='dbs'?'sm:w-20 w-15':'w-7 sm:w-10 rounded-full'} inline-block sm:ms-5 ms-2`}/></h2>
+                       <p className={`text-sm ${theme?"text-gray-500":"text-gray-400"}`}>{company.period}</p>
                   </div>
                 </div> 
 
@@ -181,7 +173,7 @@ export default function DetailExperience() {
                         <div className="flex items-start justify-between gap-4">
                           <div>
                             <h3 className="text-md font-medium">{pos.title}</h3>
-                            <p className="text-sm text-gray-500 mt-1">{pos.dates}</p>
+                            <p className={`text-sm ${theme?"text-gray-500":"text-gray-400"} mt-1`}>{pos.dates}</p>
                           </div>
 
                           <div className="flex items-center gap-2">

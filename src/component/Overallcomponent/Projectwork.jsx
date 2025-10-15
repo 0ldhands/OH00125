@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Usercontext } from "../../Context/Context";
 import cashbook from "../../assets/project/cashbook.gif";
 import jdlassist from "../../assets/project/jdlassist.gif";
 import paybill from "../../assets/project/paybill.gif";
-import projecthoriz from "../../assets/prohoriz.jpg"
+import projecthoriz from "../../assets/prohoriz.jpg";
 
-
+// =====================
+// 📁 Project Data
+// =====================
 const projectData = [
   {
     title: "Pay Bill Generation",
@@ -37,14 +39,6 @@ const projectData = [
       "This automation reduced the workload by nearly 90%, allowing staff to focus on other important tasks.",
     ],
   },
-  {
-    title: "NLD Ledger",
-    image: jdlassist,
-    description: [
-      "I created this solution for Nithya Lakshmi Deposits (NLD), one of the oldest deposit products still maintained manually despite computerization. Daily collections involved 200–300 entries, and tallying was often postponed until weekends due to the heavy workload.",
-      "The Excel file I developed enabled daily tallying within 15–20 minutes, significantly reducing weekend workload and improving operational efficiency.",
-    ],
-  },
 ];
 
 // =====================
@@ -52,11 +46,13 @@ const projectData = [
 // =====================
 const ProjectCard = ({ index, title, description, image, onImageClick }) => {
   const [expanded, setExpanded] = useState(false);
-  const{theme}=useContext(Usercontext)
+  const { theme } = useContext(Usercontext);
 
   return (
     <motion.article
-      className={`p-6 ${theme?"bg-white/90":"bg-gray-600"} rounded-xl shadow-md  backdrop-blur-sm transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300`}
+      className={`p-6 ${
+        theme ? "bg-white/90" : "bg-gray-600"
+      } rounded-xl shadow-md backdrop-blur-sm transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -64,25 +60,43 @@ const ProjectCard = ({ index, title, description, image, onImageClick }) => {
     >
       {/* Image Section */}
       {image && (
-        <div className="relative group cursor-pointer" onClick={() => onImageClick(image)}>
+        <div
+          role="button"
+          tabIndex={0}
+          className="relative group cursor-pointer"
+          onClick={() => onImageClick(image)}
+        >
           <img
             src={image}
             alt={title}
-            className="w-full h-48 object-cover rounded-lg mb-4 shadow-sm group-hover:opacity-80 transition-opacity"
+            className="w-full h-48 object-cover rounded-lg mb-4 shadow-sm group-hover:opacity-80 group-hover:scale-105 transition-all duration-300"
           />
-          <span className={`absolute bottom-2 right-2 ${theme?"bg-violet-700":"bg-blue-600"} text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity`}>
+          <span
+            className={`absolute bottom-2 right-2 ${
+              theme ? "bg-violet-700" : "bg-blue-600"
+            } text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity`}
+          >
             Click to view
           </span>
         </div>
       )}
 
       {/* Title */}
-      <h2 className="text-xl font-semibold mb-2 text-gray-800">{title}</h2>
+      <h2
+        className={`text-xl font-semibold mb-2 ${
+          theme ? "text-gray-800" : "text-gray-100"
+        }`}
+      >
+        {title}
+      </h2>
 
       {/* Description */}
       <div className={expanded ? "space-y-2" : "line-clamp-2"}>
         {description.map((para, i) => (
-          <p key={i} className={`${theme?"text-gray-700":"text-gray-400"} mb-2 leading-relaxed`}>
+          <p
+            key={i}
+            className={`${theme ? "text-gray-700" : "text-gray-300"} mb-2 leading-relaxed`}
+          >
             {para}
           </p>
         ))}
@@ -91,7 +105,11 @@ const ProjectCard = ({ index, title, description, image, onImageClick }) => {
       {/* Show More / Less button */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className={`mt-2 text-sm rounded-sm cursor-pointer ${theme?"text-violet-700 hover:text-violet-400":"text-gray-900 hover:text-gray-400"} font-medium focus:outline-none hover:underline`}
+        className={`mt-2 text-sm rounded-sm cursor-pointer ${
+          theme
+            ? "text-violet-700 hover:text-violet-400"
+            : "text-blue-300 hover:text-blue-400"
+        } font-medium focus:outline-none hover:underline`}
       >
         {expanded ? "Show Less" : "Show More"}
       </button>
@@ -104,24 +122,32 @@ const ProjectCard = ({ index, title, description, image, onImageClick }) => {
 // =====================
 const Projects = () => {
   const val = useContext(Usercontext);
-  const { Projectwork,theme} = val;
+  const { Projectwork, theme } = val;
 
   // For modal image view
   const [selectedImage, setSelectedImage] = useState(null);
 
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = selectedImage ? "hidden" : "auto";
+  }, [selectedImage]);
+
   return (
-    <div
-      className="min-h-screen  py-10 px-4"
-      ref={Projectwork}
-    >
+    <div className="min-h-screen py-10 px-4" ref={Projectwork}>
       <motion.div
-        className={`max-w-6xl mx-auto p-6 rounded-2xl shadow-xl ${theme?"bg-violet-300":"bg-gray-500"}  backdrop-blur-lg space-y-6`}
+        className={`max-w-6xl mx-auto p-6 rounded-2xl shadow-xl ${
+          theme ? "bg-violet-300" : "bg-gray-500"
+        } backdrop-blur-lg space-y-6`}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7 }}
       >
         {/* Header */}
-        <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
+        <h1
+          className={`text-2xl font-bold text-center mb-6 ${
+            theme ? "text-gray-800" : "text-gray-100"
+          }`}
+        >
           Excel Projects and Innovations
         </h1>
 
@@ -129,12 +155,12 @@ const Projects = () => {
         <img
           src={projecthoriz}
           alt="Excel Projects Banner"
-          className="w-full max-h-50 object-cover rounded-2xl shadow-lg mb-8"
+          className="w-full max-h-60 object-cover rounded-2xl shadow-lg mb-8"
         />
 
-        {/* Grid Layout for First 3 Projects */}
+        {/* Grid Layout for Projects */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {projectData.slice(0, 3).map((project, index) => (
+          {projectData.map((project, index) => (
             <ProjectCard
               key={index}
               index={index}
@@ -144,21 +170,24 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* 4th project below grid */}
-        <ProjectCard index={3} {...projectData[3]} onImageClick={setSelectedImage} />
-
         {/* Additional Contributions */}
         <motion.article
-          className={`p-6 rounded-xl shadow-md ${theme?"bg-white/90 text-gray-700":"bg-gray-600 text-gray-400"} backdrop-blur-sm transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300`}
+          className={`p-6 rounded-xl shadow-md ${
+            theme ? "bg-white/90 text-gray-700" : "bg-gray-600 text-gray-300"
+          } backdrop-blur-sm transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300`}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <h2 className="text-xl font-semibold mb-2 text-gray-800">
-            Additional Contributions
+          <h2
+            className={`text-xl font-semibold mb-2 ${
+              theme ? "text-gray-800" : "text-gray-100"
+            }`}
+          >
+            Note :
           </h2>
-          <p className=" leading-relaxed">
+          <p className="leading-relaxed">
             All of the above Excel projects were entirely self-initiated and
             served as highly effective tools in daily operations. They not only
             improved efficiency but also earned appreciation from higher

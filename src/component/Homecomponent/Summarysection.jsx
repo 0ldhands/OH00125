@@ -6,7 +6,7 @@ const SummarySection = () =>{
   const{theme,setTheme}=useContext(Usercontext)
 
   return (
-  <div className={`${theme ? "border-violet-300 ":"border-gray-600 "} m-5 border-1 rounded-3xl`}>
+  <div className={`${theme ? "border-violet-300 ":"border-gray-600 "} sm:mt-5 m-5 border-1 rounded-3xl`}>
     <div className="m-3">
       <h3 className={theme ? `text-3xl font-semibold` :`text-3xl font-semibold text-gray-50`}>Summary</h3>
     </div>

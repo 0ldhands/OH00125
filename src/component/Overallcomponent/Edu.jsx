@@ -22,7 +22,9 @@ const headingVariants = {
 const education = [
   {
     title: "Master of Business Administration (Financial Management Services)",
-    subtitle: "Anna University, Chennai [First Class]",
+    subtitle: ["Anna University, Chennai",
+      "First class"
+    ],
     year: "Jan’2010 – Feb’2012",
     image:Anna
   },
@@ -30,8 +32,8 @@ const education = [
     title:
       "Bachelor of Engineering (Electronics & Instrumentation Engineering)",
     subtitle: [
-      "Mahendra Engineering College, Namakkal [First Class with Distinction]",
-      "Anna University, Chennai",
+      "Mahendra Engineering College, Namakkal",
+      "First Class with Distinction",
       "Served as Student Representative Head for 6 Semesters.",
     ],
     year: "Apr’2003 – Apr’2007",

@@ -8,38 +8,43 @@ import { Usercontext } from "../../Context/Context";
 const Workexperience = () => {
   const work = [
     {
-      company: "DBS Vilas Bank",
+      company: "DBS Bank India Ltd.",
       role: "Specialist, Credit Analysis ",
       location: "Ambur Branch",
-      year: "Dec’2022 to Aug’2023",
+      year1: "Dec’2022",
+      year2: "Aug’2023",
       arr:true
     },
     {
-      company: "DBS Vilas Bank",
+      company: "DBS Bank India Ltd.",
       role: "Branch Manager",
       location: "Ambur Branch",
-      year: "Apr’2017 to Apr’2022",
+      year1: "Apr’2017",
+      year2: "Apr’2022",
       arr:true
     },
      {
-      company: "DBS Vilas Bank",
+      company: "DBS Bank India Ltd.",
       role: "Branch Manager",
       location: "Venjuvancheri Branch",
-      year: "Aug’2015 to Apr’2017",
+      year1: "Aug’2015",
+      year2: "Apr’2017",
       arr:true
     },
     {
-      company: "DBS Vilas Bank",
+      company: "DBS Bank India Ltd.",
       role: "Assistant Managerr",
       location: "Kancheepuram Branch ",
-      year: "Sep’2011 to Aug’2015",
+      year1: "Sep’2011",
+      year2: "Aug’2015",
       arr:true
     },
     {
       company: "DBS Bank India Ltd.",
       role: "Clerk",
       location: "T. Nagar, Chennai Branch",
-      year: "Dec’2009 to Aug’2011",
+      year1: "Dec’2009",
+      year2: "Aug’2011",
       arr:false
     },
   ];
@@ -73,7 +78,9 @@ const Workexperience = () => {
               <div className={`sm:w-35 sm:h-35 w-30 h-30 rounded-full border-[10px] ${theme?"border-violet-600":"border-blue-500"} flex items-center justify-center bg-white shadow-md relative z-10`}>
               <div className="sm:w-28 sm:h-28 w-22 h-22 rounded-full border-[6px] border-gray-800 flex items-center justify-center">
                 <span className="text-xs font-semibold text-gray-700 px-2 text-center">
-                  {job.year}
+                  {job.year1}
+                  <span className="block">to</span>
+                  {job.year2}
                 </span>
               </div>
             </div> 

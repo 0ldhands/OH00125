@@ -69,7 +69,7 @@ const FunctionalAreasCard = () => {
         <div className="mt-4 text-center">
           <button
             onClick={() => setShowMore(!showMore)}
-            className={`${theme?"text-violet-700 hover:text-violet-900 hover:bg-violet-100":"text-blue-500 hover:text-blue-900 hover:bg-gray-500"}  font-semibold text-sm border border-violet-300 rounded-full px-4 py-2  transition-all duration-300`}
+            className={`${theme?"text-violet-700 hover:text-violet-900 hover:bg-violet-100":"text-blue-500 hover:text-blue-900 hover:bg-gray-500"}  font-semibold text-sm border border-gray-300 rounded-full px-4 py-2  transition-all duration-300`}
           >
             {showMore ? "See Less ↑" : "See More ↓"}
           </button>

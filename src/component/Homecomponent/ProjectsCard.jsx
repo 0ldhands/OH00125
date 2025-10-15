@@ -26,32 +26,11 @@ const ProjectsCard = forwardRef((props, ref) => {
   };
 
   const items = [
-    {
-      name: "Pay Bill Generation",
-      file: "/files/paybill.xls",
-      filename: "paybill.xls",
-    },
-    {
-      name: "CashBook / CoinWar / Cash",
-      file: "/files/Cashbook.xlsm",
-      filename: "Cashbook.xlsm",
-    },
-    {
-      name: "JDL Assist",
-      file: "/files/JDLdata.xls",
-      filename: "JDLdata.xls",
-    },
-    {
-      name: "NLD Ledger",
-      file: "/files/JDLproucher.xlsm",
-      filename: "JDLproucher.xlsm",
-    },
-    {
-      name: "Project Details",
-      file: "/files/projectDetails.pdf",
-      filename: "projectDetails.pdf",
-    },
-    // Additional sample projects (for See More)
+    { name: "Pay Bill Generation", file: "/files/paybill.xls", filename: "paybill.xls" },
+    { name: "CashBook / CoinWar / Cash", file: "/files/Cashbook.xlsm", filename: "Cashbook.xlsm" },
+    { name: "JDL Assist", file: "/files/JDLdata.xls", filename: "JDLdata.xls" },
+    { name: "NLD Ledger", file: "/files/JDLproucher.xlsm", filename: "JDLproucher.xlsm" },
+    { name: "Project Details", file: "/files/projectDetails.pdf", filename: "projectDetails.pdf" },
   ];
 
   const visibleItems = showMore ? items : items.slice(0, 4);
@@ -59,7 +38,11 @@ const ProjectsCard = forwardRef((props, ref) => {
   return (
     <div
       ref={ref || Projects}
-      className={`border-1 ${theme ? "border-violet-200" :"border-gray-600"}  rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ease-in-out`}
+      className={`border-1 ${
+        theme ? "border-violet-200" : "border-gray-600"
+      } rounded-2xl m-5 overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] 
+      transition-all duration-500 ease-in-out 
+       sm:max-w-[320px]`}  // 👈 Ensures same width as FunctionalAreasCard
     >
       {/* Image Section */}
       <img
@@ -117,7 +100,6 @@ const ProjectsCard = forwardRef((props, ref) => {
             </li>
           ))}
         </ul>
-       
       </div>
     </div>
   );
