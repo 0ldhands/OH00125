@@ -12,7 +12,7 @@ const skills = [
   { name: "Word", img: word, spec: "Microsoft Word — Document Creation & Editing" },
   { name: "Excel", img: excel, spec: "Microsoft Excel — Data Analysis & Formulas" },
   { name: "Power BI", img: powerbi, spec: "Power BI — Data Visualization & Dashboards" },
-  { name: "MySQL", img: sql, spec: "MySQL — Database Design & Queries" },
+  { name: "SQL", img: sql, spec: "MySQL — Database Design & Queries" },
   { name: "PowerPoint", img: powerpoint, spec: "PowerPoint — Data Presentation" },
 ];
 

@@ -21,7 +21,7 @@ const projectData = [
     ],
   },
   {
-    title: "Cash Book / CoinWar / Cash Ledger",
+    title: "Cash Book",
     image: cashbook,
     description: [
       "While serving as Assistant Manager at the Kancheepuram branch, we relied on manual cash chittas for recording receipts and payments. Identifying mismatches was time-consuming, as handwritten ledgers made error tracking difficult.",
