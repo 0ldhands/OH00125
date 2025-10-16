@@ -114,7 +114,7 @@ export default function DetailExperience() {
               <h2 className="text-xl font-semibold">Career Snapshot</h2>
             </div>
               
-              <p className={`text-sm ${theme?"text-gray-500":"text-gray-400"} mt-3`}>30+ years in banking & finance, credit analysis, branch management, and software engineering background.</p>
+              <p className={`text-sm ${theme?"text-gray-500":"text-gray-400"} mt-3`}>13+ years in banking & finance, credit analysis, branch management, and software engineering background.</p>
             </div>
           </div>
 
